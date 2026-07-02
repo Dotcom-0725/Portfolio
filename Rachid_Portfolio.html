@@ -1,0 +1,2311 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-lang="ar">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="RACHID DIGITAL — Expert en création de sites web professionnels | مطور ويب احترافي | Professional Web Developer"/>
+<meta name="author" content="Rachid Digital"/>
+<meta name="keywords" content="web developer, développeur web, مطور ويب, Maroc, Morocco, المغرب"/>
+<title>RACHID DIGITAL | Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+<style>
+/* ================================================
+   RACHID DIGITAL — Trilingual Portfolio
+   Theme: Dark Premium with Emerald/Gold accents
+================================================ */
+
+:root {
+  --em: #10b981;    /* emerald */
+  --em2: #059669;
+  --gold: #f59e0b;
+  --bg: #0a0a0f;
+  --bg2: #0f0f1a;
+  --card: #13131f;
+  --card2: #1a1a2e;
+  --brd: rgba(16,185,129,.18);
+  --brd2: rgba(255,255,255,.07);
+  --tx: #f1f5f9;
+  --mx: #94a3b8;
+  --mx2: #64748b;
+  --sh: 0 4px 30px rgba(16,185,129,.10);
+  --shh: 0 16px 50px rgba(16,185,129,.22);
+  --grad: linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #8b5cf6 100%);
+  --grad2: linear-gradient(135deg, #10b981, #059669);
+  --tr: .3s cubic-bezier(.4,0,.2,1);
+  --nb: rgba(10,10,15,.92);
+}
+
+/* ── Fonts ── */
+body { font-family: 'Outfit', 'Cairo', sans-serif; }
+[data-lang="ar"] body,
+[data-lang="ar"] h1,
+[data-lang="ar"] h2,
+[data-lang="ar"] h3,
+[data-lang="ar"] p,
+[data-lang="ar"] .tx { font-family: 'Cairo', 'Outfit', sans-serif; }
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--tx); overflow-x: hidden; line-height: 1.7; }
+a { text-decoration: none; color: inherit; }
+section { padding: 96px 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; display: block; }
+
+/* ── i18n ── */
+html[data-lang="ar"] { direction: rtl; }
+html[data-lang="fr"], html[data-lang="en"] { direction: ltr; }
+/* inline t-* spans still in nav etc */
+.t-ar, .t-fr, .t-en { display: none; }
+.tt2-fr, .tt2-en { display: none; }
+.an-ar, .an-fr { display: inline; }
+
+/* ── Fade in ── */
+.fi { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+.fi.vis { opacity: 1; transform: none; }
+.fi.dl1 { transition-delay: .1s; }
+.fi.dl2 { transition-delay: .2s; }
+.fi.dl3 { transition-delay: .3s; }
+.fi.dl4 { transition-delay: .4s; }
+
+/* ================================================
+   NAVBAR
+================================================ */
+#nb {
+  position: fixed; top: 0; right: 0; left: 0; z-index: 999;
+  background: var(--nb);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid transparent;
+  transition: all var(--tr);
+}
+#nb.sc { border-color: var(--brd2); box-shadow: 0 4px 30px rgba(0,0,0,.4); }
+.nbi { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; padding: 0 24px; gap: 16px; }
+
+/* Logo */
+.logo { font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: -.5px; position: relative; }
+.logo-r { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.logo-dot { color: var(--em); }
+
+/* Nav links */
+.nl { display: flex; align-items: center; gap: 4px; list-style: none; }
+.nl a { font-weight: 600; font-size: .88rem; color: var(--mx); padding: 6px 12px; border-radius: 8px; transition: color var(--tr), background var(--tr); letter-spacing: .3px; text-transform: uppercase; font-size: .78rem; }
+.nl a:hover, .nl a.act { color: var(--em); background: rgba(16,185,129,.1); }
+
+/* Nav actions */
+.na { display: flex; align-items: center; gap: 8px; }
+
+/* Language switcher */
+.lang-sw { display: flex; gap: 4px; background: var(--card); border-radius: 10px; padding: 3px; border: 1px solid var(--brd2); }
+.lang-btn { padding: 4px 10px; border-radius: 7px; border: none; background: transparent; color: var(--mx); font-size: .75rem; font-weight: 700; cursor: pointer; transition: all var(--tr); font-family: 'Outfit', sans-serif; letter-spacing: .5px; }
+.lang-btn.act { background: var(--grad2); color: #fff; }
+
+/* Theme toggle */
+#tt { width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--brd2); background: var(--card); color: var(--mx); font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all var(--tr); }
+#tt:hover { border-color: var(--em); color: var(--em); }
+
+/* Hamburger */
+#mt { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
+#mt span { width: 22px; height: 2px; background: var(--tx); border-radius: 2px; transition: all var(--tr); display: block; }
+#mt.op span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+#mt.op span:nth-child(2) { opacity: 0; }
+#mt.op span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ================================================
+   HERO
+================================================ */
+#hero {
+  min-height: 100vh; display: flex; align-items: center;
+  position: relative; overflow: hidden; padding-top: 68px;
+  background: var(--bg);
+}
+
+/* Animated mesh background */
+.hero-mesh {
+  position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+}
+.hero-mesh::before {
+  content: '';
+  position: absolute; width: 700px; height: 700px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(16,185,129,.12) 0%, transparent 65%);
+  top: -200px; right: -200px; animation: mesh1 10s ease-in-out infinite;
+}
+.hero-mesh::after {
+  content: '';
+  position: absolute; width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,.09) 0%, transparent 65%);
+  bottom: -150px; left: -100px; animation: mesh1 13s ease-in-out infinite reverse;
+}
+@keyframes mesh1 { 0%,100% { transform: scale(1) translate(0,0); } 50% { transform: scale(1.08) translate(30px,20px); } }
+
+/* Grid lines decoration */
+.hero-grid {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(16,185,129,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16,185,129,.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hc {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; gap: 60px; width: 100%;
+}
+
+/* Badge */
+.avail-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(16,185,129,.08); border: 1px solid rgba(16,185,129,.3);
+  color: var(--em); font-size: .8rem; font-weight: 700;
+  padding: 6px 14px; border-radius: 50px; margin-bottom: 20px;
+  font-family: 'Outfit', sans-serif; letter-spacing: .5px;
+}
+.avail-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--em); animation: pu 1.8s infinite; }
+@keyframes pu { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);} }
+
+/* Hero title */
+.hero-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 900; line-height: 1.1; margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+html[data-lang="ar"] .hero-title {
+  font-family: 'Cairo', sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  letter-spacing: 0;
+}
+.grad-text { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* Typing */
+.hero-sub { font-size: 1.1rem; color: var(--mx); margin-bottom: 8px; min-height: 30px; }
+#ty { color: var(--em); font-weight: 700; }
+.cur { display: inline-block; width: 2px; height: 1em; background: var(--em); margin-right: 2px; animation: bl .8s infinite; vertical-align: middle; }
+@keyframes bl { 0%,100%{opacity:1;}50%{opacity:0;} }
+
+.hero-desc { font-size: 1.05rem; color: var(--mx); line-height: 1.85; max-width: 520px; margin-bottom: 36px; }
+
+/* Buttons */
+.hbs { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 12px; font-weight: 700; font-size: .92rem; cursor: pointer; border: none; transition: all var(--tr); font-family: inherit; letter-spacing: .3px; }
+.bp { background: var(--grad2); color: #fff; box-shadow: 0 4px 20px rgba(16,185,129,.35); }
+.bp:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(16,185,129,.5); }
+.bo { background: transparent; color: var(--em); border: 2px solid var(--em); }
+.bo:hover { background: rgba(16,185,129,.1); transform: translateY(-2px); }
+.bgold { background: linear-gradient(135deg,#f59e0b,#d97706); color: #fff; box-shadow: 0 4px 20px rgba(245,158,11,.3); }
+.bgold:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,158,11,.45); }
+
+/* Hero image */
+.hiw { flex-shrink: 0; position: relative; }
+.hero-avatar-wrap {
+  width: 300px; height: 300px; border-radius: 50%;
+  position: relative;
+}
+.hero-avatar-ring {
+  width: 100%; height: 100%; border-radius: 50%;
+  background: conic-gradient(var(--em) 0deg, #3b82f6 120deg, #8b5cf6 240deg, var(--em) 360deg);
+  padding: 3px; animation: spin 8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.hero-avatar-inner {
+  width: 100%; height: 100%; border-radius: 50%;
+  background: linear-gradient(135deg,rgba(16,185,129,.15),rgba(59,130,246,.1));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 7rem; border: 3px solid var(--bg);
+}
+
+/* Floating tech badges */
+.tech-badge {
+  position: absolute; background: var(--card); border: 1px solid var(--brd);
+  border-radius: 12px; padding: 8px 14px; font-size: .8rem; font-weight: 700;
+  font-family: 'Outfit',sans-serif; color: var(--tx);
+  box-shadow: 0 8px 24px rgba(0,0,0,.4); white-space: nowrap;
+  animation: float 4s ease-in-out infinite;
+}
+.tb1 { top: 10px; right: -20px; animation-delay: 0s; }
+.tb2 { bottom: 30px; right: -30px; animation-delay: 1s; }
+.tb3 { bottom: 10px; left: -20px; animation-delay: 2s; }
+.tb4 { top: 30px; left: -30px; animation-delay: 1.5s; }
+@keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+
+/* Hero stats */
+
+/* ================================================
+   SECTION TITLES
+================================================ */
+.st2 { text-align: center; margin-bottom: 60px; }
+.st2 .eyebrow { font-family: 'Outfit',sans-serif; font-size: .75rem; font-weight: 700; color: var(--em); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; display: block; }
+.st2 h2 { font-family: 'Outfit',sans-serif; font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 900; margin-bottom: 14px; letter-spacing: -.5px; }
+html[data-lang="ar"] .st2 h2 { font-family: 'Cairo',sans-serif; letter-spacing: 0; }
+.st2 h2 span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.sdiv { width: 48px; height: 3px; background: var(--grad2); border-radius: 2px; margin: 0 auto 16px; }
+.st2 p { color: var(--mx); max-width: 480px; margin: 0 auto; font-size: 1rem; }
+
+/* ================================================
+   ABOUT
+================================================ */
+#about { background: var(--bg); }
+.about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: center; }
+.about-visual {
+  position: relative;
+}
+.about-img {
+  width: 100%; aspect-ratio: 1;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(16,185,129,.12), rgba(59,130,246,.08));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 8rem; border: 1px solid var(--brd);
+  position: relative; overflow: hidden;
+}
+.about-img::before { content:''; position:absolute; inset:0; background: var(--grad); opacity:.05; }
+.about-deco {
+  position: absolute; bottom: -20px; right: -20px;
+  width: 120px; height: 120px; border-radius: 20px;
+  background: var(--grad2); opacity: .15;
+  animation: float 5s ease-in-out infinite;
+}
+.about-deco2 {
+  position: absolute; top: -15px; left: -15px;
+  width: 80px; height: 80px; border-radius: 50%;
+  border: 2px solid var(--em); opacity: .2;
+  animation: float 6s ease-in-out infinite reverse;
+}
+.about-text h3 { font-family: 'Outfit',sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
+html[data-lang="ar"] .about-text h3 { font-family: 'Cairo',sans-serif; }
+.about-text p { color: var(--mx); line-height: 1.9; margin-bottom: 28px; font-size: 1.02rem; }
+
+/* Skills */
+.ski { margin-bottom: 16px; }
+.skh { display: flex; justify-content: space-between; margin-bottom: 6px; font-weight: 600; font-size: .88rem; }
+.skh span:last-child { color: var(--em); }
+.skb { height: 6px; background: var(--card2); border-radius: 6px; overflow: hidden; }
+.skf { height: 100%; border-radius: 6px; background: var(--grad2); width: 0; transition: width 1.3s cubic-bezier(.4,0,.2,1); }
+
+/* ================================================
+   PORTFOLIO
+================================================ */
+#portfolio { background: var(--bg2); }
+.fbs { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 44px; }
+.fb { padding: 8px 20px; border-radius: 50px; border: 1px solid var(--brd2); background: transparent; color: var(--mx); font-family: 'Outfit',sans-serif; font-weight: 600; font-size: .82rem; cursor: pointer; transition: all var(--tr); text-transform: uppercase; letter-spacing: .5px; }
+.fb.act, .fb:hover { background: var(--grad2); color: #fff; border-color: transparent; }
+.pg { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px,1fr)); gap: 26px; }
+
+.pc {
+  background: var(--card); border: 1px solid var(--brd2);
+  border-radius: 20px; overflow: hidden;
+  transition: transform var(--tr), box-shadow var(--tr), border-color var(--tr);
+  display: flex; flex-direction: column;
+}
+.pc:hover { transform: translateY(-8px); box-shadow: var(--shh); border-color: var(--brd); }
+
+.pimg {
+  aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center;
+  font-size: 3.5rem; position: relative; overflow: hidden;
+}
+.pimg-label {
+  position: absolute; bottom: 12px; right: 12px;
+  background: rgba(0,0,0,.7); backdrop-filter: blur(8px);
+  color: #fff; font-size: .72rem; font-weight: 700;
+  padding: 4px 12px; border-radius: 50px;
+  font-family: 'Outfit',sans-serif; letter-spacing: .5px;
+}
+.pov {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,.75); backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  opacity: 0; transition: opacity var(--tr);
+}
+.pc:hover .pov { opacity: 1; }
+.pov a {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: rgba(255,255,255,.12);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; border: 1px solid rgba(255,255,255,.25);
+  transition: background var(--tr), transform var(--tr);
+}
+.pov a:hover { background: var(--em2); transform: scale(1.1); }
+.ico { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.pi { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+.pi h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 7px; line-height: 1.4; }
+.pi p { font-size: .87rem; color: var(--mx); line-height: 1.72; flex: 1; }
+.pi-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--brd2); }
+.pi-cat { font-size: .75rem; color: var(--mx2); font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
+.pi-link { font-size: .8rem; color: var(--em); font-weight: 700; display: flex; align-items: center; gap: 4px; transition: gap var(--tr); }
+.pi-link:hover { gap: 8px; }
+
+/* ================================================
+   SERVICES
+================================================ */
+#services { background: var(--bg); }
+.sg { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 24px; }
+.sc {
+  background: var(--card); border: 1px solid var(--brd2); border-radius: 20px;
+  padding: 36px 28px; text-align: center;
+  transition: transform var(--tr), box-shadow var(--tr), border-color var(--tr);
+  position: relative; overflow: hidden;
+}
+.sc::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--grad); transform: scaleX(0); transform-origin: right; transition: transform var(--tr); }
+.sc:hover::before { transform: scaleX(1); }
+.sc:hover { transform: translateY(-8px); box-shadow: var(--shh); border-color: var(--brd); }
+.si { width: 72px; height: 72px; border-radius: 20px; background: rgba(16,185,129,.1); border: 1px solid rgba(16,185,129,.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 22px; font-size: 2.2rem; transition: background var(--tr); }
+.sc:hover .si { background: var(--grad2); }
+.sc h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 12px; }
+.sc p { font-size: .88rem; color: var(--mx); line-height: 1.75; }
+
+/* ================================================
+   TESTIMONIALS
+================================================ */
+#testimonials { background: var(--bg); }
+.tsl { position: relative; overflow: hidden; }
+.ttr { display: flex; gap: 24px; transition: transform .55s cubic-bezier(.4,0,.2,1); }
+.tc {
+  background: var(--card); border: 1px solid var(--brd2); border-radius: 20px;
+  padding: 32px; min-width: calc(100%/3 - 16px); box-shadow: var(--sh);
+  position: relative; flex-shrink: 0;
+}
+.tc::before { content: '"'; font-size: 5rem; color: var(--em); opacity: .1; position: absolute; top: 10px; left: 24px; line-height: 1; font-family: Georgia, serif; }
+html[data-lang="ar"] .tc::before { right: 24px; left: auto; }
+.tt2 { font-size: .94rem; color: var(--mx); line-height: 1.82; margin-bottom: 22px; position: relative; z-index: 1; }
+.ta { display: flex; align-items: center; gap: 13px; }
+.av { width: 48px; height: 48px; border-radius: 50%; background: var(--grad2); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+.an { font-weight: 800; font-size: .94rem; }
+.ar2 { font-size: .78rem; color: var(--mx2); }
+.stars { color: var(--gold); font-size: .84rem; margin-bottom: 3px; letter-spacing: 1px; }
+.dots { display: flex; justify-content: center; gap: 7px; margin-top: 32px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brd2); cursor: pointer; border: none; transition: all var(--tr); }
+.dot.act { background: var(--em); width: 22px; border-radius: 4px; }
+
+/* ================================================
+   BLOG
+================================================ */
+#blog { background: var(--bg2); }
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px,1fr)); gap: 24px; }
+.blog-card {
+  background: var(--card); border: 1px solid var(--brd2); border-radius: 20px;
+  overflow: hidden; transition: transform var(--tr), box-shadow var(--tr), border-color var(--tr);
+  display: flex; flex-direction: column;
+}
+.blog-card:hover { transform: translateY(-6px); box-shadow: var(--shh); border-color: var(--brd); }
+.blog-cover { aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; font-size: 3.8rem; position: relative; overflow: hidden; }
+.blog-cat { position: absolute; top: 14px; right: 14px; background: var(--grad2); color: #fff; font-size: .7rem; font-weight: 700; padding: 4px 12px; border-radius: 50px; font-family: 'Outfit',sans-serif; letter-spacing: .5px; }
+html[data-lang="ar"] .blog-cat { left: 14px; right: auto; }
+.blog-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+.blog-meta { display: flex; align-items: center; gap: 14px; font-size: .77rem; color: var(--mx2); margin-bottom: 11px; flex-wrap: wrap; font-family: 'Outfit',sans-serif; }
+.blog-body h3 { font-size: 1.08rem; font-weight: 800; margin-bottom: 9px; line-height: 1.5; }
+.blog-body > p { font-size: .87rem; color: var(--mx); line-height: 1.75; flex: 1; }
+.blog-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--brd2); }
+.blog-author { display: flex; align-items: center; gap: 8px; font-size: .8rem; font-weight: 600; }
+.blog-author-av { width: 30px; height: 30px; border-radius: 50%; background: var(--grad2); display: flex; align-items: center; justify-content: center; font-size: .85rem; }
+.read-more { font-size: .82rem; font-weight: 700; color: var(--em); display: flex; align-items: center; gap: 4px; transition: gap var(--tr); }
+.read-more:hover { gap: 9px; }
+
+/* ================================================
+   CONTACT
+================================================ */
+#contact { background: var(--bg); }
+.cg { display: grid; grid-template-columns: 1fr 1.6fr; gap: 56px; align-items: start; }
+.ci h3 { font-family: 'Outfit',sans-serif; font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; }
+html[data-lang="ar"] .ci h3 { font-family: 'Cairo',sans-serif; }
+.ci > p { color: var(--mx); line-height: 1.85; margin-bottom: 30px; }
+.cit { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+.cicn { width: 44px; height: 44px; border-radius: 12px; background: rgba(16,185,129,.1); border: 1px solid rgba(16,185,129,.2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.cit h4 { font-size: .8rem; color: var(--mx2); margin-bottom: 2px; text-transform: uppercase; letter-spacing: .5px; font-family: 'Outfit',sans-serif; }
+.cit p { font-weight: 600; font-size: .93rem; }
+.sl2 { display: flex; gap: 9px; margin-top: 28px; }
+.slk { width: 42px; height: 42px; border-radius: 12px; border: 1px solid var(--brd2); display: flex; align-items: center; justify-content: center; color: var(--mx); transition: all var(--tr); }
+.slk:hover { border-color: var(--em); color: var(--em); transform: translateY(-3px); }
+.slk svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Contact form */
+.cf { background: var(--card); border: 1px solid var(--brd2); border-radius: 24px; padding: 40px; }
+.fg { margin-bottom: 18px; }
+.fg label { display: block; font-weight: 700; font-size: .85rem; margin-bottom: 7px; color: var(--mx); text-transform: uppercase; letter-spacing: .5px; font-family: 'Outfit',sans-serif; }
+.fg input, .fg textarea {
+  width: 100%; padding: 13px 16px; border-radius: 12px;
+  border: 1px solid var(--brd2); background: var(--bg2); color: var(--tx);
+  font-family: inherit; font-size: .95rem;
+  transition: border-color var(--tr), box-shadow var(--tr); outline: none;
+}
+.fg input:focus, .fg textarea:focus { border-color: var(--em); box-shadow: 0 0 0 3px rgba(16,185,129,.12); }
+.fg input.er, .fg textarea.er { border-color: #ef4444; }
+.em-err { font-size: .77rem; color: #ef4444; margin-top: 4px; display: none; }
+.em-err.sh { display: block; }
+.fg textarea { min-height: 130px; resize: vertical; }
+.fr { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.smsg { display: none; background: rgba(16,185,129,.1); border: 1px solid rgba(16,185,129,.28); color: var(--em); border-radius: 12px; padding: 14px 18px; margin-top: 13px; font-weight: 700; text-align: center; }
+.smsg.sh { display: block; }
+
+/* ================================================
+   FOOTER
+================================================ */
+footer { background: var(--bg2); border-top: 1px solid var(--brd2); padding: 56px 0 28px; }
+.fg2 { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 44px; }
+.fb2 .logo { font-size: 1.5rem; display: inline-block; margin-bottom: 14px; }
+.fb2 p { color: var(--mx); font-size: .9rem; line-height: 1.85; max-width: 280px; }
+.fcol h4 { font-family: 'Outfit',sans-serif; font-size: .82rem; font-weight: 700; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 1px; color: var(--mx2); }
+.fl { list-style: none; }
+.fl li { margin-bottom: 10px; }
+.fl a { color: var(--mx); font-size: .9rem; transition: color var(--tr); display: flex; align-items: center; gap: 6px; }
+.fl a:hover { color: var(--em); }
+.fl a::before { content: '›'; color: var(--em); font-weight: 900; }
+html[data-lang="ar"] .fl a::before { content: '‹'; }
+.fbot { border-top: 1px solid var(--brd2); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.fbot p { color: var(--mx2); font-size: .85rem; font-family: 'Outfit',sans-serif; }
+
+/* ================================================
+   FIXED BUTTONS
+================================================ */
+#sct {
+  position: fixed; bottom: 28px; left: 28px; width: 46px; height: 46px;
+  border-radius: 12px; background: var(--card); color: var(--em); border: 1px solid var(--brd);
+  font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,.4); z-index: 990;
+  opacity: 0; pointer-events: none; transform: translateY(10px); transition: all var(--tr);
+}
+#sct.vis { opacity: 1; pointer-events: auto; transform: none; }
+#sct:hover { background: var(--em); color: #fff; }
+
+#wa-btn {
+  position: fixed; bottom: 86px; left: 28px; z-index: 990;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: #25d366; color: #fff; border: none;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 24px rgba(37,211,102,.5); cursor: pointer;
+  transition: all var(--tr); text-decoration: none;
+}
+#wa-btn:hover { transform: scale(1.12); }
+#wa-btn svg { width: 26px; height: 26px; fill: #fff; }
+.wa-pulse { position: absolute; inset: -5px; border-radius: 50%; border: 2px solid rgba(37,211,102,.45); animation: wap 2.2s ease-out infinite; pointer-events: none; }
+@keyframes wap { 0%{transform:scale(1);opacity:1;}100%{transform:scale(1.6);opacity:0;} }
+
+/* ── CTA Bar ثابت في الأسفل ── */
+#cta-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 989;
+  padding: 12px 20px;
+  background: rgba(10,10,15,.88);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(16,185,129,.2);
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  transform: translateY(100%);
+  transition: transform .5s cubic-bezier(.4,0,.2,1);
+}
+#cta-bar.vis { transform: translateY(0); }
+.cta-text {
+  color: var(--mx); font-size: .88rem;
+  display: none;
+}
+@media (min-width: 480px) { .cta-text { display: block; } }
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 28px; border-radius: 50px;
+  background: var(--grad2); color: #fff; border: none;
+  font-family: inherit; font-weight: 800; font-size: .92rem;
+  cursor: pointer; text-decoration: none;
+  box-shadow: 0 4px 20px rgba(16,185,129,.4);
+  transition: all var(--tr); white-space: nowrap;
+  animation: ctapulse 2.5s ease-in-out infinite;
+}
+.cta-btn:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(16,185,129,.6); }
+@keyframes ctapulse {
+  0%,100% { box-shadow: 0 4px 20px rgba(16,185,129,.4); }
+  50%      { box-shadow: 0 4px 32px rgba(16,185,129,.7); }
+}
+
+
+/* ── Contact form — redesigned ── */
+.cf {
+  background: var(--card); border: 1px solid var(--brd2);
+  border-radius: 28px; padding: 44px;
+  position: relative; overflow: hidden;
+}
+.cf::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--grad); }
+.fg { margin-bottom: 20px; position: relative; }
+.fg label {
+  display: block; font-weight: 700; font-size: .78rem;
+  margin-bottom: 8px; color: var(--em);
+  text-transform: uppercase; letter-spacing: 1px;
+  font-family: 'Outfit', sans-serif;
+}
+.fg .iw { position: relative; }
+.fg .ii {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  color: var(--mx2); font-size: 1.05rem; pointer-events: none;
+  transition: color var(--tr);
+}
+/* RTL: icon on left; LTR: icon on right */
+html[data-lang="ar"] .fg .ii { right: auto; left: 15px; }
+html[data-lang="fr"] .fg .ii,
+html[data-lang="en"] .fg .ii { left: auto; right: 15px; }
+.fg .ii-ta { top: 18px; transform: none; }
+
+.fg input, .fg textarea {
+  width: 100%; padding: 14px 20px;
+  border-radius: 14px;
+  border: 2px solid var(--brd2);
+  background: var(--bg2); color: var(--tx);
+  font-family: 'Cairo', 'Outfit', sans-serif; font-size: .95rem;
+  transition: border-color var(--tr), box-shadow var(--tr), background var(--tr);
+  outline: none;
+}
+/* padding side for icon */
+html[data-lang="ar"] .fg .iw input,
+html[data-lang="ar"] .fg .iw textarea { padding-left: 44px; padding-right: 20px; }
+html[data-lang="fr"] .fg .iw input,
+html[data-lang="fr"] .fg .iw textarea,
+html[data-lang="en"] .fg .iw input,
+html[data-lang="en"] .fg .iw textarea { padding-right: 44px; padding-left: 20px; font-family: 'Outfit', sans-serif; }
+
+.fg input:focus, .fg textarea:focus {
+  border-color: var(--em); background: rgba(16,185,129,.04);
+  box-shadow: 0 0 0 4px rgba(16,185,129,.10);
+}
+.fg input.er, .fg textarea.er { border-color: #ef4444; box-shadow: 0 0 0 4px rgba(239,68,68,.08); }
+.em-err { font-size: .77rem; color: #ef4444; margin-top: 5px; display: none; }
+.em-err.sh { display: block; }
+.fg textarea { min-height: 140px; resize: vertical; }
+.fr { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* service selector chips */
+.service-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.s-chip {
+  padding: 8px 16px; border-radius: 50px; border: 1.5px solid var(--brd2);
+  background: transparent; color: var(--mx); font-family: inherit;
+  font-size: .82rem; font-weight: 600; cursor: pointer; transition: all var(--tr);
+}
+.s-chip:hover, .s-chip.sel { background: rgba(16,185,129,.12); border-color: var(--em); color: var(--em); }
+
+/* Submit */
+.btn-submit {
+  width: 100%; justify-content: center;
+  padding: 16px 28px; font-size: 1rem; font-weight: 800;
+  border-radius: 14px; letter-spacing: .5px;
+  background: var(--grad2); color: #fff; border: none;
+  box-shadow: 0 6px 24px rgba(16,185,129,.35);
+  transition: all var(--tr); cursor: pointer; font-family: inherit;
+  display: flex; align-items: center; gap: 10px;
+}
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(16,185,129,.5); }
+.btn-submit:disabled { opacity: .6; transform: none; cursor: not-allowed; }
+
+/* Success */
+.smsg {
+  display: none; margin-top: 14px;
+  padding: 16px 20px; border-radius: 14px;
+  background: rgba(16,185,129,.1); border: 1px solid rgba(16,185,129,.3);
+  color: var(--em); font-weight: 700; text-align: center; font-size: .95rem;
+  animation: fadeInUp .4s ease;
+}
+.smsg.sh { display: flex; align-items: center; justify-content: center; gap: 8px; }
+@keyframes fadeInUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+
+/* ================================================
+   LIGHT MODE (optional toggle)
+================================================ */
+body.light {
+  --bg: #f8fffe; --bg2: #f0fdf4; --card: #fff; --card2: #f0fdf4;
+  --brd: rgba(16,185,129,.25); --brd2: rgba(0,0,0,.08);
+  --tx: #0f172a; --mx: #475569; --mx2: #94a3b8;
+  --sh: 0 4px 24px rgba(16,185,129,.08);
+  --shh: 0 16px 50px rgba(16,185,129,.16);
+  --nb: rgba(248,255,254,.94);
+}
+
+/* ================================================
+   RESPONSIVE
+================================================ */
+@media (max-width: 1024px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-visual { display: none; }
+  .cg { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .hc { grid-template-columns: 1fr; text-align: center; }
+  .hiw { display: none; }
+  .hbs { justify-content: center; }
+  
+  .tc { min-width: calc(100%/2 - 12px); }
+  .fg2 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  section { padding: 68px 0; }
+  .nl { display: none; position: fixed; top: 68px; right: 0; left: 0; background: var(--nb); backdrop-filter: blur(24px); flex-direction: column; padding: 14px 0; border-bottom: 1px solid var(--brd2); gap: 2px; z-index: 998; }
+  .nl.op { display: flex; }
+  #mt { display: flex; }
+  .pg { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .pg .pi { padding: 12px; }
+  .pg .pi h3 { font-size: .9rem; }
+  .pg .pi p { font-size: .78rem; }
+  .pg   .pg .pimg { font-size: 2.2rem; }
+  .pg .pi-footer { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .sg { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .sg .sc { padding: 22px 16px; }
+  .sg .si { width: 52px; height: 52px; font-size: 1.5rem; }
+  .sg .sc h3 { font-size: .95rem; }
+  .sg .sc p { font-size: .8rem; }
+  .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .blog-card .blog-body { padding: 14px; }
+  .blog-card .blog-body h3 { font-size: .88rem; }
+  .blog-card .blog-body > p { font-size: .78rem; }
+  .blog-card .blog-cover { font-size: 2.4rem; }
+  .fr { grid-template-columns: 1fr; }
+  .fg2 { grid-template-columns: 1fr; }
+  .tc { min-width: 100%; }
+  .cf { padding: 22px; }
+  .lang-sw { gap: 2px; }
+  .lang-btn { padding: 4px 7px; font-size: .68rem; }
+  .hero-title { font-size: clamp(1.9rem, 8vw, 2.8rem); }
+}
+
+/* ══════════════════════════════════════
+   ADMIN PANEL
+══════════════════════════════════════ */
+#admin-trigger {
+  position: fixed; top: 50%; right: 0;
+  transform: translateY(-50%); z-index: 9998;
+  background: var(--grad2); color: #fff; border: none;
+  border-radius: 12px 0 0 12px; padding: 14px 8px;
+  cursor: pointer; writing-mode: vertical-rl;
+  font-size: .72rem; font-weight: 800; letter-spacing: 1px;
+  font-family: 'Outfit', sans-serif;
+  box-shadow: -4px 0 20px rgba(16,185,129,.4);
+  transition: all var(--tr); opacity: .7;
+}
+#admin-trigger:hover { opacity: 1; padding-left: 12px; }
+
+#admin-overlay {
+  display: none; position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,.65); backdrop-filter: blur(5px);
+}
+#admin-overlay.open { display: block; }
+
+#admin-panel {
+  position: fixed; top: 0; right: -540px; bottom: 0;
+  width: 100%; max-width: 520px; z-index: 10000;
+  background: #080812; border-left: 1px solid rgba(16,185,129,.2);
+  display: flex; flex-direction: column;
+  transition: right .4s cubic-bezier(.4,0,.2,1);
+}
+#admin-panel.open { right: 0; }
+
+.ap-head {
+  padding: 18px 22px; flex-shrink: 0;
+  background: linear-gradient(135deg,rgba(16,185,129,.1),rgba(59,130,246,.06));
+  border-bottom: 1px solid rgba(16,185,129,.15);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.ap-head h2 {
+  font-family:'Outfit',sans-serif; font-size: 1rem; font-weight: 900; margin: 0;
+  background: var(--grad); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ap-head-right { display: flex; align-items: center; gap: 8px; }
+.ap-close, .ap-logout {
+  border-radius: 8px; border: none; cursor: pointer;
+  font-family: 'Outfit',sans-serif; font-weight: 700; transition: all .25s;
+}
+.ap-close {
+  width: 34px; height: 34px; background: rgba(255,255,255,.06);
+  color: #94a3b8; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.ap-close:hover { background: rgba(239,68,68,.2); color: #ef4444; }
+.ap-logout {
+  padding: 6px 12px; background: rgba(239,68,68,.08);
+  color: #ef4444; font-size: .75rem; border: 1px solid rgba(239,68,68,.2);
+}
+.ap-logout:hover { background: rgba(239,68,68,.2); }
+
+/* Login */
+#ap-login {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 40px 32px; gap: 14px;
+}
+.ap-lock-icon { font-size: 3.5rem; margin-bottom: 6px; }
+#ap-login h3 { font-family:'Outfit',sans-serif; font-size: 1.2rem; font-weight: 800; color: #f1f5f9; margin: 0; }
+#ap-login p { color: #475569; font-size: .85rem; margin: 0; text-align: center; }
+#ap-pwd {
+  width: 100%; padding: 13px 18px; border-radius: 12px;
+  border: 2px solid rgba(255,255,255,.08); background: rgba(255,255,255,.04);
+  color: #f1f5f9; font-family:'Outfit',sans-serif; font-size: 1.1rem;
+  outline: none; text-align: center; letter-spacing: 6px;
+  transition: border-color .3s;
+}
+#ap-pwd:focus { border-color: #10b981; }
+#ap-login-btn {
+  width: 100%; padding: 13px; border-radius: 12px;
+  background: var(--grad2); color: #fff; border: none;
+  font-weight: 800; font-size: .95rem; cursor: pointer; font-family: inherit;
+  transition: all .3s;
+}
+#ap-login-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(16,185,129,.4); }
+#ap-err { color: #ef4444; font-size: .82rem; display: none; text-align: center; }
+#ap-err.show { display: block; }
+
+/* Main */
+#ap-main { display: none; flex: 1; flex-direction: column; overflow: hidden; }
+#ap-main.show { display: flex; }
+
+.ap-tabs {
+  display: flex; overflow-x: auto; flex-shrink: 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.ap-tabs::-webkit-scrollbar { display: none; }
+.ap-tab {
+  padding: 12px 16px; background: none; border: none; border-bottom: 2px solid transparent;
+  color: #475569; font-family:'Outfit',sans-serif; font-size: .78rem;
+  font-weight: 700; cursor: pointer; white-space: nowrap;
+  text-transform: uppercase; letter-spacing: .5px; transition: all .25s;
+}
+.ap-tab.act { color: #10b981; border-color: #10b981; }
+.ap-tab:hover:not(.act) { color: #94a3b8; }
+
+.ap-pane { display: none; flex: 1; overflow-y: auto; padding: 20px 22px; }
+.ap-pane.act { display: block; }
+.ap-pane::-webkit-scrollbar { width: 4px; }
+.ap-pane::-webkit-scrollbar-thumb { background: rgba(16,185,129,.25); border-radius: 2px; }
+
+.ap-section-title {
+  font-family:'Outfit',sans-serif; font-size: .72rem; font-weight: 800;
+  color: #10b981; text-transform: uppercase; letter-spacing: 1px;
+  margin-bottom: 12px; margin-top: 6px;
+  display: flex; align-items: center; gap: 6px;
+}
+.ap-field { margin-bottom: 16px; }
+.ap-label {
+  display: block; font-size: .73rem; font-weight: 700;
+  color: #64748b; text-transform: uppercase; letter-spacing: .6px;
+  margin-bottom: 6px; font-family:'Outfit',sans-serif;
+}
+.ap-input, .ap-textarea, .ap-select {
+  width: 100%; padding: 10px 12px; border-radius: 9px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.04); color: #e2e8f0;
+  font-family: inherit; font-size: .88rem; outline: none; transition: border-color .25s;
+}
+.ap-input:focus, .ap-textarea:focus { border-color: #10b981; background: rgba(16,185,129,.04); }
+.ap-textarea { min-height: 80px; resize: vertical; }
+
+.ap-card {
+  background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07);
+  border-radius: 12px; padding: 14px; margin-bottom: 12px;
+}
+.ap-card-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.ap-card-head span { font-size: .82rem; font-weight: 700; color: #94a3b8; font-family:'Outfit',sans-serif; }
+.ap-del {
+  width: 28px; height: 28px; border-radius: 7px;
+  background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.2);
+  color: #ef4444; font-size: .85rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: all .25s;
+}
+.ap-del:hover { background: rgba(239,68,68,.25); }
+
+.ap-img-zone {
+  border: 2px dashed rgba(16,185,129,.25); border-radius: 10px;
+  padding: 18px; text-align: center; cursor: pointer;
+  transition: all .25s; position: relative; margin-bottom: 10px;
+}
+.ap-img-zone:hover { border-color: #10b981; background: rgba(16,185,129,.04); }
+.ap-img-zone input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.ap-img-zone p { font-size: .8rem; color: #475569; margin: 4px 0 0; }
+.ap-img-zone .iz-icon { font-size: 1.8rem; }
+.ap-img-thumb {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;
+}
+.ap-img-thumb img {
+  width: 72px; height: 72px; object-fit: cover;
+  border-radius: 8px; border: 1px solid rgba(255,255,255,.1);
+}
+
+.ap-add-btn {
+  width: 100%; padding: 9px; border-radius: 9px;
+  border: 1px dashed rgba(16,185,129,.25); background: transparent;
+  color: #10b981; font-family:'Outfit',sans-serif; font-weight: 700;
+  font-size: .82rem; cursor: pointer; transition: all .25s; margin-bottom: 14px;
+}
+.ap-add-btn:hover { background: rgba(16,185,129,.07); border-color: #10b981; }
+
+.ap-save-bar {
+  padding: 14px 22px; border-top: 1px solid rgba(255,255,255,.06);
+  display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+}
+.ap-save {
+  flex: 1; padding: 11px; border-radius: 10px;
+  background: var(--grad2); color: #fff; border: none;
+  font-weight: 800; font-size: .88rem; cursor: pointer; font-family: inherit;
+  transition: all .3s;
+}
+.ap-save:hover { box-shadow: 0 6px 20px rgba(16,185,129,.4); }
+.ap-discard {
+  padding: 11px 16px; border-radius: 10px;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  color: #64748b; cursor: pointer; font-family: inherit; font-size: .85rem; transition: all .25s;
+}
+.ap-discard:hover { color: #f1f5f9; }
+.ap-ok { color: #10b981; font-size: .82rem; font-weight: 700; display: none; }
+.ap-ok.show { display: block; }
+@media(max-width:520px){ #admin-panel{ max-width:100%; } }
+</style>
+</head>
+<body>
+
+<!-- ================================================
+     NAVBAR
+================================================ -->
+<nav id="nb">
+  <div class="nbi">
+    <a href="#hero" class="logo">
+      <span class="logo-r">RACHID</span><span class="logo-dot">.</span><span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">DIGITAL</span>
+    </a>
+
+    <ul class="nl" id="nl">
+      <li><a class="tx-i" data-ar="الرئيسية" data-fr="Accueil" data-en="Home">الرئيسية</a></li>
+      <li><a class="tx-i" data-ar="عني" data-fr="À propos" data-en="About">عني</a></li>
+      <li><a class="tx-i" data-ar="مشاريعي" data-fr="Projets" data-en="Projects">مشاريعي</a></li>
+      <li><a class="tx-i" data-ar="خدماتي" data-fr="Services" data-en="Services">خدماتي</a></li>
+      <li><a class="tx-i" data-ar="مدونتي" data-fr="Blog" data-en="Blog">مدونتي</a></li>
+      <li><a class="tx-i" data-ar="تواصل" data-fr="Contact" data-en="Contact">تواصل</a></li>
+    </ul>
+
+    <div class="na">
+      <div class="lang-sw" role="group" aria-label="Language">
+        <button class="lang-btn act" onclick="setLang('ar')">عر</button>
+        <button class="lang-btn" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </div>
+      <button id="tt" aria-label="Toggle theme"><span id="ti">☀️</span></button>
+      <button id="mt" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ================================================
+     HERO
+================================================ -->
+<section id="hero">
+  <div class="hero-mesh"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hc">
+      <div class="fi">
+        <!-- Badge -->
+        <span class="avail-badge">
+          <span class="avail-dot"></span>
+          <span class="tx-i" data-ar="متاح للعمل الآن ✅" data-fr="Disponible maintenant ✅" data-en="Available for work ✅">متاح للعمل الآن ✅</span>
+        </span>
+
+        <!-- Title -->
+        <h1 class="hero-title">
+          <span class="tx-i" data-ar="أنا" data-fr="Je suis" data-en="I'm">أنا</span> <span class="grad-text">Rachid</span><br><span class="tx-i" data-ar="مطوّر ويب" data-fr="Développeur Web" data-en="Web Developer">مطوّر ويب</span>
+          <span class="t-fr">Je suis <span class="grad-text">Rachid</span><br>Développeur Web</span>
+          <span class="t-en">I'm <span class="grad-text">Rachid</span><br>Web Developer</span>
+        </h1>
+
+        <!-- Typing -->
+        <p class="hero-sub"><span id="ty"></span><span class="cur"></span></p>
+
+        <!-- Description -->
+        <p class="hero-desc">
+          <span class="tx-i" data-ar="أبني تجارب رقمية لا تُنسى لأصحاب الأعمال والمطاعم والمحامين والأطباء وكل من يريد حضوراً احترافياً على الإنترنت. كودي نظيف، تصميمي يأسر الأنظار، ونتائجي تتحدث عن نفسها." data-fr="Je crée des expériences digitales inoubliables pour les entrepreneurs, restaurants, avocats et médecins qui veulent une présence en ligne professionnelle. Mon code est propre, mon design accrocheur, mes résultats parlent d'eux-mêmes." data-en="I build unforgettable digital experiences for business owners, restaurants, lawyers, and doctors who want a professional online presence. Clean code, eye-catching design, results that speak for themselves.">أبني تجارب رقمية لا تُنسى لأصحاب الأعمال والمطاعم والمحامين والأطباء وكل من يريد حضوراً احترافياً على الإنترنت. كودي نظيف، تصميمي يأسر الأنظار، ونتائجي تتحدث عن نفسها.</span>
+        </p>
+
+        <!-- Buttons -->
+        <div class="hbs">
+          <a href="#portfolio" class="btn bp">
+            <span class="tx-i" data-ar="🚀 شاهد أعمالي" data-fr="🚀 Voir mes projets" data-en="🚀 View my work">🚀 شاهد أعمالي</span>
+          </a>
+          <a href="https://wa.me/212628537649" target="_blank" class="btn bgold">
+            <span class="tx-i" data-ar="💬 واتساب" data-fr="💬 WhatsApp" data-en="💬 WhatsApp">💬 واتساب</span>
+          </a>
+          <a href="#contact" class="btn bo">
+            <span class="tx-i" data-ar="✉️ تواصل" data-fr="✉️ Contact" data-en="✉️ Contact">✉️ تواصل</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Avatar -->
+      <div class="hiw fi">
+        <div class="hero-avatar-wrap">
+          <div class="hero-avatar-ring">
+            <div class="hero-avatar-inner">👨‍💻</div>
+          </div>
+          <div class="tech-badge tb1">⚛️ React</div>
+          <div class="tech-badge tb2">🟢 Node.js</div>
+          <div class="tech-badge tb3">🎨 UI/UX</div>
+          <div class="tech-badge tb4">☁️ Cloud</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     ABOUT
+================================================ -->
+<section id="about">
+  <div class="container">
+    <div class="st2 fi">
+      <span class="eyebrow" data-ar="من أنا" data-fr="À propos" data-en="About me">من أنا</span>
+      <div class="sdiv"></div>
+      <h2 class="tx-block" data-ar="مطوّر ويب <span>شغوف بالإبداع</span>" data-fr="Développeur Web <span>passionné</span>" data-en="Web Developer <span>Passionate Creator</span>">مطوّر ويب <span>شغوف بالإبداع</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-visual fi">
+        <div class="about-img">🧑‍💻</div>
+        <div class="about-deco"></div>
+        <div class="about-deco2"></div>
+      </div>
+      <div class="about-text fi">
+        <h3 class="tx-block" data-ar="رشيد ديجيتال — حيث تُولد المواقع الرابحة" data-fr="Rachid Digital — Là où naissent les sites gagnants" data-en="Rachid Digital — Where Winning Websites Are Born">رشيد ديجيتال — حيث تُولد المواقع الرابحة</h3>
+
+        <p class="tx-block" data-ar="أنا مطور ويب مقيم في طنجة، المغرب، متخصص في تحويل أفكار الأعمال إلى مواقع ويب احترافية تجذب العملاء وتزيد المبيعات. أعمل مع أصحاب المطاعم والمحامين والأطباء وشركات التجارة الإلكترونية لبناء حضور رقمي قوي يعكس هويتهم." data-fr="Je suis développeur web basé à Tanger, Maroc, spécialisé dans la transformation des idées d'affaires en sites web professionnels qui attirent des clients et augmentent les ventes. Je travaille avec des restaurateurs, avocats, médecins et e-commerçants pour construire une présence digitale forte." data-en="I'm a web developer based in Tangier, Morocco, specializing in turning business ideas into professional websites that attract clients and boost sales. I work with restaurant owners, lawyers, doctors, and e-commerce businesses to build a strong digital presence that reflects their identity.">أنا مطور ويب مقيم في طنجة، المغرب، متخصص في تحويل أفكار الأعمال إلى مواقع ويب احترافية تجذب العملاء وتزيد المبيعات. أعمل مع أصحاب المطاعم والمحامين والأطباء وشركات التجارة الإلكترونية لبناء حضور رقمي قوي يعكس هويتهم.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
+          <a href="#contact" class="btn bp">
+            <span class="tx-i" data-ar="🚀 ابدأ مشروعك" data-fr="🚀 Démarrer un projet" data-en="🚀 Start a project">🚀 ابدأ مشروعك</span>
+          </a>
+          <a href="#portfolio" class="btn bo">
+            <span class="tx-i" data-ar="👁️ شاهد أعمالي" data-fr="👁️ Voir mes projets" data-en="👁️ View my work">👁️ شاهد أعمالي</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     PORTFOLIO
+================================================ -->
+<section id="portfolio">
+  <div class="container">
+    <div class="st2 fi">
+      <span class="eyebrow" data-ar="أعمالي" data-fr="Mes projets" data-en="My work">أعمالي</span>
+      <div class="sdiv"></div>
+      <h2 class="tx-block" data-ar="أحدث <span>مشاريعي</span>" data-fr="Mes derniers <span>projets</span>" data-en="Latest <span>Projects</span>">أحدث <span>مشاريعي</span></h2>
+      <p class="tx-block" data-ar="مواقع حقيقية لأعمال حقيقية — كل مشروع قصة نجاح" data-fr="Des sites réels pour de vraies entreprises — chaque projet est une success story" data-en="Real websites for real businesses — every project is a success story">مواقع حقيقية لأعمال حقيقية — كل مشروع قصة نجاح</p>
+    </div>
+
+    <div class="fbs fi">
+      <button class="fb act" data-f="all"><span class="tx-i" data-ar="الكل" data-fr="Tous" data-en="All">الكل</span></button>
+      <button class="fb" data-f="ecom"><span class="tx-i" data-ar="تجارة" data-fr="E-commerce" data-en="E-commerce">تجارة</span></button>
+      <button class="fb" data-f="resto"><span class="tx-i" data-ar="مطاعم" data-fr="Restaurants" data-en="Restaurants">مطاعم</span></button>
+      <button class="fb" data-f="pro"><span class="tx-i" data-ar="مهنيون" data-fr="Professionnels" data-en="Professionals">مهنيون</span></button>
+      <button class="fb" data-f="serv"><span class="tx-i" data-ar="خدمات" data-fr="Services" data-en="Services">خدمات</span></button>
+    </div>
+
+    <div class="pg" id="pg">
+
+      <!-- 1: E-commerce -->
+      <article class="pc fi" data-cat="ecom">
+        <div class="pimg" style="background:linear-gradient(135deg,rgba(16,185,129,.2),rgba(59,130,246,.15))">
+          🛒
+          <span class="pimg-label">E-COMMERCE</span>
+          <div class="pov">
+            <a href="#"><svg class="ico" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <a href="#"><svg class="ico" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          </div>
+        </div>
+        <div class="pi">
+          <h3 class="tx-block" data-ar="متجر إلكتروني + صفحة هبوط احترافية" data-fr="E-shop + Landing Page Professionnelle" data-en="E-shop + Professional Landing Page">متجر إلكتروني + صفحة هبوط احترافية</h3>
+          <p class="tx-block" data-ar="متجر إلكتروني متكامل مع صفحة هبوط مُحسَّنة للتحويل، بوابة دفع آمنة، وإدارة مخزون ذكية. مثالي لأصحاب التجارة الإلكترونية الراغبين في مضاعفة مبيعاتهم." data-fr="Boutique en ligne complète avec landing page optimisée pour la conversion, passerelle de paiement sécurisée et gestion intelligente des stocks. Idéal pour les e-commerçants." data-en="Full e-commerce store with conversion-optimized landing page, secure payment gateway, and smart inventory management. Perfect for online sellers ready to scale.">متجر إلكتروني متكامل مع صفحة هبوط مُحسَّنة للتحويل، بوابة دفع آمنة، وإدارة مخزون ذكية. مثالي لأصحاب التجارة الإلكترونية الراغبين في مضاعفة مبيعاتهم.</p>
+          <div class="pi-footer">
+            <span class="tx-i" data-ar="تجارة إلكترونية" data-fr="E-commerce" data-en="E-commerce">تجارة إلكترونية</span>
+            <a href="#" class="pi-link"><span class="tx-i" data-ar="عرض" data-fr="Voir" data-en="View">عرض</span> →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2: Restaurant -->
+      <article class="pc fi" data-cat="resto">
+        <div class="pimg" style="background:linear-gradient(135deg,rgba(245,158,11,.2),rgba(239,68,68,.15))">
+          🍽️
+          <span class="pimg-label">RESTAURANT</span>
+          <div class="pov">
+            <a href="#"><svg class="ico" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <a href="#"><svg class="ico" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          </div>
+        </div>
+        <div class="pi">
+          <h3 class="tx-block" data-ar="موقع مطعم + نظام توصيل" data-fr="Site Restaurant + Système de Livraison" data-en="Restaurant Website + Delivery System">موقع مطعم + نظام توصيل</h3>
+          <p class="tx-block" data-ar="موقع مطعم أنيق مع قائمة طعام رقمية تفاعلية، نظام طلب وتوصيل فوري، تتبع حي للطلبات، وحجز طاولة أونلاين. يزيد المبيعات ويوفر وقت الموظفين." data-fr="Site restaurant élégant avec menu digital interactif, système de commande et livraison instantanée, suivi en temps réel et réservation en ligne. Boost vos ventes, économisez du temps." data-en="Elegant restaurant site with interactive digital menu, instant ordering & delivery system, live order tracking, and online table booking. Boosts sales and saves staff time.">موقع مطعم أنيق مع قائمة طعام رقمية تفاعلية، نظام طلب وتوصيل فوري، تتبع حي للطلبات، وحجز طاولة أونلاين. يزيد المبيعات ويوفر وقت الموظفين.</p>
+          <div class="pi-footer">
+            <span class="tx-i" data-ar="مطاعم وتوصيل" data-fr="Restauration" data-en="Food & Delivery">مطاعم وتوصيل</span>
+            <a href="#" class="pi-link"><span class="tx-i" data-ar="عرض" data-fr="Voir" data-en="View">عرض</span> →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3: Lawyer -->
+      <article class="pc fi" data-cat="pro">
+        <div class="pimg" style="background:linear-gradient(135deg,rgba(30,41,59,.4),rgba(16,185,129,.15))">
+          ⚖️
+          <span class="pimg-label">AVOCAT / LAWYER</span>
+          <div class="pov">
+            <a href="#"><svg class="ico" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <a href="#"><svg class="ico" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          </div>
+        </div>
+        <div class="pi">
+          <h3 class="tx-block" data-ar="موقع مكتب محاماة احترافي" data-fr="Site Cabinet d'Avocats Professionnel" data-en="Professional Law Firm Website">موقع مكتب محاماة احترافي</h3>
+          <p class="tx-block" data-ar="موقع قانوني راقٍ يعرض التخصصات والسيرة المهنية، مع نظام حجز استشارات مؤتمت، مدونة قانونية، وتصميم يُعبّر عن الثقة والمصداقية لجذب العملاء الجدد." data-fr="Site juridique haut de gamme présentant les spécialités et le parcours professionnel, avec système de prise de RDV automatisé, blog juridique et design inspirant confiance." data-en="High-end legal website showcasing specializations and professional background, with automated appointment booking, legal blog, and a design that radiates trust to attract new clients.">موقع قانوني راقٍ يعرض التخصصات والسيرة المهنية، مع نظام حجز استشارات مؤتمت، مدونة قانونية، وتصميم يُعبّر عن الثقة والمصداقية لجذب العملاء الجدد.</p>
+          <div class="pi-footer">
+            <span class="tx-i" data-ar="محاماة" data-fr="Cabinet juridique" data-en="Law Firm">محاماة</span>
+            <a href="#" class="pi-link"><span class="tx-i" data-ar="عرض" data-fr="Voir" data-en="View">عرض</span> →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4: Doctor -->
+      <article class="pc fi" data-cat="pro">
+        <div class="pimg" style="background:linear-gradient(135deg,rgba(16,185,129,.18),rgba(6,182,212,.15))">
+          🩺
+          <span class="pimg-label">MÉDECIN / DOCTOR</span>
+          <div class="pov">
+            <a href="#"><svg class="ico" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <a href="#"><svg class="ico" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          </div>
+        </div>
+        <div class="pi">
+          <h3 class="tx-block" data-ar="موقع عيادة طبيب خاص" data-fr="Site Cabinet Médical Privé" data-en="Private Medical Clinic Website">موقع عيادة طبيب خاص</h3>
+          <p class="tx-block" data-ar="موقع عيادة طبية بتصميم نظيف ومريح، مع نظام حجز مواعيد ذكي، ملف المريض الرقمي، تذكيرات SMS تلقائية، وخدمة استشارة عن بُعد لتوفير وقت الطبيب والمريض." data-fr="Site de cabinet médical au design propre et rassurant, avec système de RDV intelligent, dossier patient numérique, rappels SMS automatiques et téléconsultation." data-en="Medical clinic website with clean, reassuring design, smart appointment system, digital patient records, automatic SMS reminders, and teleconsultation — saving time for both doctor and patient.">موقع عيادة طبية بتصميم نظيف ومريح، مع نظام حجز مواعيد ذكي، ملف المريض الرقمي، تذكيرات SMS تلقائية، وخدمة استشارة عن بُعد لتوفير وقت الطبيب والمريض.</p>
+          <div class="pi-footer">
+            <span class="tx-i" data-ar="طب" data-fr="Médical" data-en="Medical">طب</span>
+            <a href="#" class="pi-link"><span class="tx-i" data-ar="عرض" data-fr="Voir" data-en="View">عرض</span> →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5: Car Rental -->
+      <article class="pc fi" data-cat="serv">
+        <div class="pimg" style="background:linear-gradient(135deg,rgba(239,68,68,.16),rgba(245,158,11,.18))">
+          🚗
+          <span class="pimg-label">LOCATION AUTO</span>
+          <div class="pov">
+            <a href="#"><svg class="ico" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <a href="#"><svg class="ico" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          </div>
+        </div>
+        <div class="pi">
+          <h3 class="tx-block" data-ar="وكالة كراء السيارات" data-fr="Agence de Location de Voitures" data-en="Car Rental Agency Platform">وكالة كراء السيارات</h3>
+          <p class="tx-block" data-ar="منصة كراء سيارات متكاملة مع كتالوج تفاعلي، مقارنة الموديلات، حجز فوري بالدفع الإلكتروني، إدارة العقود والمرتجعات، وإشعارات واتساب تلقائية للعملاء." data-fr="Plateforme de location de voitures complète avec catalogue interactif, comparatif des modèles, réservation instantanée, gestion des contrats et notifications WhatsApp automatiques." data-en="Complete car rental platform with interactive catalogue, model comparison, instant booking with online payment, contract management, and automatic WhatsApp notifications for clients.">منصة كراء سيارات متكاملة مع كتالوج تفاعلي، مقارنة الموديلات، حجز فوري بالدفع الإلكتروني، إدارة العقود والمرتجعات، وإشعارات واتساب تلقائية للعملاء.</p>
+          <div class="pi-footer">
+            <span class="tx-i" data-ar="كراء سيارات" data-fr="Location auto" data-en="Car Rental">كراء سيارات</span>
+            <a href="#" class="pi-link"><span class="tx-i" data-ar="عرض" data-fr="Voir" data-en="View">عرض</span> →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6: Garage -->
+      <article class="pc fi" data-cat="serv">
+        <div class="pimg" style="background:linear-gradient(135deg,rgba(100,116,139,.25),rgba(245,158,11,.18))">
+          🔧
+          <span class="pimg-label">GARAGE AUTO</span>
+          <div class="pov">
+            <a href="#"><svg class="ico" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <a href="#"><svg class="ico" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          </div>
+        </div>
+        <div class="pi">
+          <h3 class="tx-block" data-ar="موقع كراج ميكانيك ذكي" data-fr="Site Garage Mécanique Intelligent" data-en="Smart Auto Garage Website">موقع كراج ميكانيك ذكي</h3>
+          <p class="tx-block" data-ar="موقع كراج ميكانيك احترافي مع نظام حجز الخدمات والفحص، تتبع حالة الإصلاح لحظةً بلحظة، فاتورة رقمية، كتالوج قطع الغيار، وإشعارات للعملاء عند الانتهاء." data-fr="Site garage professionnel avec système de réservation, suivi en temps réel des réparations, facturation numérique, catalogue de pièces et notifications clients à la fin des travaux." data-en="Professional garage website with service booking system, real-time repair tracking, digital invoicing, parts catalogue, and automatic client notifications when work is complete.">موقع كراج ميكانيك احترافي مع نظام حجز الخدمات والفحص، تتبع حالة الإصلاح لحظةً بلحظة، فاتورة رقمية، كتالوج قطع الغيار، وإشعارات للعملاء عند الانتهاء.</p>
+          <div class="pi-footer">
+            <span class="tx-i" data-ar="ميكانيك" data-fr="Garage auto" data-en="Auto Garage">ميكانيك</span>
+            <a href="#" class="pi-link"><span class="tx-i" data-ar="عرض" data-fr="Voir" data-en="View">عرض</span> →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     SERVICES
+================================================ -->
+<section id="services">
+  <div class="container">
+    <div class="st2 fi">
+      <span class="eyebrow" data-ar="خدماتي" data-fr="Mes services" data-en="My services">خدماتي</span>
+      <div class="sdiv"></div>
+      <h2 class="tx-block" data-ar="ماذا <span>أقدّم لك؟</span>" data-fr="Que puis-je <span>faire pour vous?</span>" data-en="What can I <span>do for you?</span>">ماذا <span>أقدّم لك؟</span></h2>
+    </div>
+    <div class="sg">
+      <div class="sc fi dl1">
+        <div class="si">🎨</div>
+        <h3 class="tx-block" data-ar="تصميم UI/UX" data-fr="Design UI/UX" data-en="UI/UX Design">تصميم UI/UX</h3>
+        <p class="tx-block" data-ar="واجهات مستخدم جذابة تجمع الجمال والبساطة لتجربة لا تُنسى على جميع الأجهزة." data-fr="Interfaces utilisateur attractives alliant beauté et simplicité pour une expérience inoubliable sur tous les appareils." data-en="Attractive user interfaces combining beauty and simplicity for an unforgettable experience across all devices.">واجهات مستخدم جذابة تجمع الجمال والبساطة لتجربة لا تُنسى على جميع الأجهزة.</p>
+      </div>
+      <div class="sc fi dl2">
+        <div class="si">💻</div>
+        <h3 class="tx-block" data-ar="تطوير مواقع ويب" data-fr="Développement Web" data-en="Web Development">تطوير مواقع ويب</h3>
+        <p class="tx-block" data-ar="مواقع سريعة، آمنة، ومتجاوبة بأحدث التقنيات وأفضل ممارسات الأداء والـ SEO." data-fr="Sites rapides, sécurisés et responsives avec les dernières technologies et les meilleures pratiques SEO." data-en="Fast, secure, responsive websites using the latest technologies and best SEO & performance practices.">مواقع سريعة، آمنة، ومتجاوبة بأحدث التقنيات وأفضل ممارسات الأداء والـ SEO.</p>
+      </div>
+      <div class="sc fi dl3">
+        <div class="si">🛒</div>
+        <h3 class="tx-block" data-ar="متاجر إلكترونية" data-fr="Boutiques en Ligne" data-en="Online Stores">متاجر إلكترونية</h3>
+        <p class="tx-block" data-ar="متاجر إلكترونية متكاملة مع نظام دفع، مخزون، وإدارة طلبات تزيد مبيعاتك تلقائياً." data-fr="Boutiques complètes avec paiement, gestion des stocks et des commandes pour augmenter vos ventes automatiquement." data-en="Complete online stores with payment, inventory, and order management to grow your sales automatically.">متاجر إلكترونية متكاملة مع نظام دفع، مخزون، وإدارة طلبات تزيد مبيعاتك تلقائياً.</p>
+      </div>
+      <div class="sc fi dl4">
+        <div class="si">📈</div>
+        <h3 class="tx-block" data-ar="تحسين SEO والأداء" data-fr="SEO & Performance" data-en="SEO & Performance">تحسين SEO والأداء</h3>
+        <p class="tx-block" data-ar="تحسين ترتيب موقعك في جوجل وسرعة تحميله لجذب المزيد من الزوار والعملاء المحتملين." data-fr="Amélioration du classement Google et de la vitesse de chargement pour attirer plus de visiteurs et prospects." data-en="Improve your Google ranking and page speed to attract more visitors and potential clients to your business.">تحسين ترتيب موقعك في جوجل وسرعة تحميله لجذب المزيد من الزوار والعملاء المحتملين.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     TESTIMONIALS
+================================================ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="st2 fi">
+      <span class="eyebrow" data-ar="آراء العملاء" data-fr="Témoignages" data-en="Testimonials">آراء العملاء</span>
+      <div class="sdiv"></div>
+      <h2 class="tx-block" data-ar="ماذا قال <span>عملاؤنا؟</span>" data-fr="Ce que disent <span>nos clients</span>" data-en="What our <span>clients say</span>">ماذا قال <span>عملاؤنا؟</span></h2>
+    </div>
+    <div class="tsl fi">
+      <div class="ttr" id="ttr">
+        <div class="tc">
+          <p class="tt2">تعامل احترافي من أعلى مستوى. أنجز موقعي في وقت قياسي وبجودة تفوق توقعاتي. الموقع جلب لي عملاء جدد من الأسبوع الأول!</p>
+          <p class="tt2 tt2-fr">Travail professionnel de très haut niveau. Mon site a été livré en temps record avec une qualité dépassant mes attentes. J'ai eu de nouveaux clients dès la première semaine!</p>
+          <p class="tt2 tt2-en">Top-level professional work. My site was delivered in record time with quality beyond my expectations. I got new clients from the very first week!</p>
+          <div class="ta"><div class="av">👨‍💼</div><div><div class="stars">★★★★★</div><div class="an an-ar">أحمد بنسعيد</div><div class="an an-fr">Ahmed Bensaid</div><div class="tx-i" data-ar="صاحب متجر إلكتروني" data-fr="Propriétaire boutique" data-en="Online Store Owner">صاحب متجر إلكتروني</div></div></div>
+        </div>
+        <div class="tc">
+          <p class="tt2">أفضل قرار اتخذته لمطعمي! الموقع يُشغّل نظام الطلبات تلقائياً وأنا نائم. زادت مبيعاتنا 60% خلال شهرين فقط.</p>
+          <p class="tt2 tt2-fr">Meilleure décision pour mon restaurant! Le site gère les commandes automatiquement. Nos ventes ont augmenté de 60% en seulement deux mois.</p>
+          <p class="tt2 tt2-en">Best decision for my restaurant! The site handles orders automatically. Our sales increased 60% in just two months.</p>
+          <div class="ta"><div class="av">👨‍🍳</div><div><div class="stars">★★★★★</div><div class="an an-ar">كريم لحلو</div><div class="an an-fr">Karim Lahlou</div><div class="tx-i" data-ar="صاحب مطعم، طنجة" data-fr="Restaurateur, Tanger" data-en="Restaurant Owner, Tangier">صاحب مطعم، طنجة</div></div></div>
+        </div>
+        <div class="tc">
+          <p class="tt2">موقعي القانوني يعكس الآن مستوى الاحتراف الذي أقدمه. العملاء يجدونني على جوجل ويحجزون مباشرة. استثمار ذكي جداً.</p>
+          <p class="tt2 tt2-fr">Mon site juridique reflète maintenant mon niveau de professionnalisme. Les clients me trouvent sur Google et réservent directement. Très bon investissement.</p>
+          <p class="tt2 tt2-en">My legal website now reflects my level of professionalism. Clients find me on Google and book directly. A very smart investment.</p>
+          <div class="ta"><div class="av">⚖️</div><div><div class="stars">★★★★★</div><div class="an an-ar">نادية العلوي</div><div class="an an-fr">Nadia Alaoui</div><div class="tx-i" data-ar="محامية، الرباط" data-fr="Avocate, Rabat" data-en="Lawyer, Rabat">محامية، الرباط</div></div></div>
+        </div>
+        <div class="tc">
+          <p class="tt2">تعامل احترافي من أعلى مستوى. الموقع جلب لي عملاء جدد من الأسبوع الأول!</p>
+          <p class="tt2 tt2-fr">Travail professionnel de très haut niveau. J'ai eu de nouveaux clients dès la première semaine!</p>
+          <p class="tt2 tt2-en">Top-level professional work. I got new clients from the very first week!</p>
+          <div class="ta"><div class="av">👨‍💼</div><div><div class="stars">★★★★★</div><div class="an an-ar">أحمد بنسعيد</div><div class="an an-fr">Ahmed Bensaid</div><div class="tx-i" data-ar="صاحب متجر" data-fr="Commerçant" data-en="Business Owner">صاحب متجر</div></div></div>
+        </div>
+      </div>
+      <div class="dots">
+        <button class="dot act" onclick="gts(0)"></button>
+        <button class="dot" onclick="gts(1)"></button>
+        <button class="dot" onclick="gts(2)"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     BLOG
+================================================ -->
+<section id="blog">
+  <div class="container">
+    <div class="st2 fi">
+      <span class="eyebrow" data-ar="مدونتي" data-fr="Mon blog" data-en="My blog">مدونتي</span>
+      <div class="sdiv"></div>
+      <h2 class="tx-block" data-ar="أحدث <span>مقالاتي</span>" data-fr="Mes derniers <span>articles</span>" data-en="Latest <span>Articles</span>">أحدث <span>مقالاتي</span></h2>
+    </div>
+    <div class="blog-grid">
+      <article class="blog-card fi dl1">
+        <div class="blog-cover" style="background:linear-gradient(135deg,rgba(16,185,129,.2),rgba(59,130,246,.15))">🎯<span class="tx-i" data-ar="تطوير" data-fr="Dev" data-en="Dev">تطوير</span></div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>📅 <span class="tx-i" data-ar="مارس 2024" data-fr="Mars 2024" data-en="March 2024">مارس 2024</span></span><span>⏱️ 5 min</span></div>
+          <h3 class="tx-block" data-ar="لماذا يحتاج عملك موقعاً احترافياً في 2024؟" data-fr="Pourquoi votre entreprise a besoin d'un site pro en 2024?" data-en="Why Your Business Needs a Pro Website in 2024">لماذا يحتاج عملك موقعاً احترافياً في 2024؟</h3>
+          <p class="tx-block" data-ar="75% من العملاء يحكمون على مصداقية الشركة من موقعها الإلكتروني. اكتشف كيف يمكن لموقع احترافي أن يضاعف أرباحك." data-fr="75% des clients jugent la crédibilité d'une entreprise par son site web. Découvrez comment un site professionnel peut doubler vos profits." data-en="75% of clients judge a company's credibility by its website. Discover how a professional site can double your profits.">75% من العملاء يحكمون على مصداقية الشركة من موقعها الإلكتروني. اكتشف كيف يمكن لموقع احترافي أن يضاعف أرباحك.</p>
+          <div class="blog-footer">
+            <div class="blog-author"><div class="blog-author-av">👨‍💻</div> Rachid Digital</div>
+            <a href="#" class="read-more"><span class="tx-i" data-ar="اقرأ" data-fr="Lire" data-en="Read">اقرأ</span> →</a>
+          </div>
+        </div>
+      </article>
+      <article class="blog-card fi dl2">
+        <div class="blog-cover" style="background:linear-gradient(135deg,rgba(245,158,11,.2),rgba(239,68,68,.15))">🚀<span class="tx-i" data-ar="أداء" data-fr="Perf" data-en="Perf">أداء</span></div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>📅 <span class="tx-i" data-ar="فبراير 2024" data-fr="Fév 2024" data-en="Feb 2024">فبراير 2024</span></span><span>⏱️ 7 min</span></div>
+          <h3 class="tx-block" data-ar="كيف تحقق نتيجة 98/100 في Google PageSpeed" data-fr="Comment obtenir 98/100 sur Google PageSpeed" data-en="How to Score 98/100 on Google PageSpeed">كيف تحقق نتيجة 98/100 في Google PageSpeed</h3>
+          <p class="tx-block" data-ar="دليل تقني شامل لتحسين سرعة موقعك وتحسين ترتيبه في محركات البحث وتجربة المستخدم." data-fr="Guide technique complet pour améliorer la vitesse de votre site, son classement SEO et l'expérience utilisateur." data-en="Comprehensive technical guide to improving your site speed, SEO ranking, and user experience.">دليل تقني شامل لتحسين سرعة موقعك وتحسين ترتيبه في محركات البحث وتجربة المستخدم.</p>
+          <div class="blog-footer">
+            <div class="blog-author"><div class="blog-author-av">👨‍💻</div> Rachid Digital</div>
+            <a href="#" class="read-more"><span class="tx-i" data-ar="اقرأ" data-fr="Lire" data-en="Read">اقرأ</span> →</a>
+          </div>
+        </div>
+      </article>
+      <article class="blog-card fi dl3">
+        <div class="blog-cover" style="background:linear-gradient(135deg,rgba(139,92,246,.2),rgba(59,130,246,.15))">📱<span class="tx-i" data-ar="تصميم" data-fr="Design" data-en="Design">تصميم</span></div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>📅 <span class="tx-i" data-ar="يناير 2024" data-fr="Jan 2024" data-en="Jan 2024">يناير 2024</span></span><span>⏱️ 4 min</span></div>
+          <h3 class="tx-block" data-ar="أفضل 5 نصائح لتصميم موقع مطعم يجذب الزبائن" data-fr="Top 5 conseils pour un site restaurant qui attire" data-en="Top 5 Tips for a Restaurant Website That Attracts">أفضل 5 نصائح لتصميم موقع مطعم يجذب الزبائن</h3>
+          <p class="tx-block" data-ar="من الصور الاحترافية إلى نظام الحجز — كل ما يجعل موقع مطعمك يحول الزوار إلى زبائن فعليين." data-fr="Des photos professionnelles au système de réservation — tout ce qui transforme les visiteurs en vrais clients pour votre restaurant." data-en="From professional photos to booking systems — everything that turns website visitors into real restaurant customers.">من الصور الاحترافية إلى نظام الحجز — كل ما يجعل موقع مطعمك يحول الزوار إلى زبائن فعليين.</p>
+          <div class="blog-footer">
+            <div class="blog-author"><div class="blog-author-av">👨‍💻</div> Rachid Digital</div>
+            <a href="#" class="read-more"><span class="tx-i" data-ar="اقرأ" data-fr="Lire" data-en="Read">اقرأ</span> →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     CONTACT
+================================================ -->
+<section id="contact">
+  <div class="container">
+    <div class="st2 fi">
+      <span class="eyebrow" data-ar="تواصل معي" data-fr="Contactez-moi" data-en="Get in touch">تواصل معي</span>
+      <div class="sdiv"></div>
+      <h2 class="tx-block" data-ar="هل لديك <span>مشروع؟</span>" data-fr="Vous avez un <span>projet?</span>" data-en="Got a <span>project?</span>">هل لديك <span>مشروع؟</span></h2>
+    </div>
+    <div class="cg">
+      <div class="ci fi">
+        <h3 class="tx-block" data-ar="نبني مشروعك معاً 🚀" data-fr="Construisons votre projet ensemble 🚀" data-en="Let's build your project together 🚀">نبني مشروعك معاً 🚀</h3>
+        <p class="tx-block" data-ar="هل أنت مستعد لإطلاق موقعك الاحترافي؟ تواصل معي الآن وسأجيبك في أقل من 24 ساعة." data-fr="Prêt à lancer votre site professionnel? Contactez-moi maintenant, je vous réponds en moins de 24h." data-en="Ready to launch your professional website? Contact me now and I'll reply within 24 hours.">هل أنت مستعد لإطلاق موقعك الاحترافي؟ تواصل معي الآن وسأجيبك في أقل من 24 ساعة.</p>
+
+        <div class="cit"><div class="cicn">✉️</div><div><h4>Email</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8eeae1faede1e3beb9bcbbcee9e3efe7e2a0ede1e3">[email&#160;protected]</a></p></div></div>
+        <div class="cit"><div class="cicn">📞</div><div>
+          <h4><span class="tx-i" data-ar="المغرب" data-fr="Maroc" data-en="Morocco">المغرب</span></h4>
+          <p>+212 628 537 649</p>
+          <h4 style="margin-top:6px"><span class="tx-i" data-ar="دول أخرى" data-fr="Autres pays" data-en="Other countries">دول أخرى</span></h4>
+          <p>+1 514 690 6018</p>
+        </div></div>
+        <div class="cit"><div class="cicn">📍</div><div>
+          <h4><span class="tx-i" data-ar="الموقع" data-fr="Localisation" data-en="Location">الموقع</span></h4>
+          <p><span class="tx-i" data-ar="طنجة، المغرب 🇲🇦" data-fr="Tanger, Maroc 🇲🇦" data-en="Tangier, Morocco 🇲🇦">طنجة، المغرب 🇲🇦</span></p>
+        </div></div>
+
+        <div class="sl2">
+          <a href="#" class="slk" title="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          <a href="#" class="slk" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://wa.me/212628537649" class="slk" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+
+      <div class="cf fi">
+
+        <!-- اختيار الخدمة -->
+        <div style="margin-bottom:20px">
+          <label style="display:block;font-weight:700;font-size:.78rem;margin-bottom:10px;color:var(--em);text-transform:uppercase;letter-spacing:1px;font-family:'Outfit',sans-serif" data-i18n="service_label">الخدمة المطلوبة</label>
+          <div class="service-chips">
+            <button class="s-chip sel" type="button" data-i18n-chip="ecom">🛒 تجارة إلكترونية</button>
+            <button class="s-chip" type="button" data-i18n-chip="resto">🍽️ مطعم</button>
+            <button class="s-chip" type="button" data-i18n-chip="law">⚖️ محاماة</button>
+            <button class="s-chip" type="button" data-i18n-chip="med">🩺 طب</button>
+            <button class="s-chip" type="button" data-i18n-chip="car">🚗 كراء سيارات</button>
+            <button class="s-chip" type="button" data-i18n-chip="other">💡 أخرى</button>
+          </div>
+        </div>
+
+        <div class="fr">
+          <!-- الاسم -->
+          <div class="fg">
+            <label data-i18n="name_label">الاسم الكامل *</label>
+            <div class="iw">
+              <input type="text" id="nm" data-i18n-ph="name_ph"/>
+              <span class="ii">👤</span>
+            </div>
+            <span class="em-err" id="nm-e" data-i18n="name_err">يرجى إدخال الاسم</span>
+          </div>
+          <!-- البريد -->
+          <div class="fg">
+            <label data-i18n="email_label">البريد الإلكتروني *</label>
+            <div class="iw">
+              <input type="email" id="em2" placeholder="example@email.com"/>
+              <span class="ii">✉️</span>
+            </div>
+            <span class="em-err" id="em2-e" data-i18n="email_err">بريد إلكتروني غير صحيح</span>
+          </div>
+        </div>
+
+        <!-- الهاتف -->
+        <div class="fg">
+          <label data-i18n="phone_label">رقم الهاتف</label>
+          <div class="iw">
+            <input type="tel" id="phone" data-i18n-ph="phone_ph"/>
+            <span class="ii">📞</span>
+          </div>
+        </div>
+
+        <!-- الموضوع -->
+        <div class="fg">
+          <label data-i18n="subject_label">الموضوع *</label>
+          <div class="iw">
+            <input type="text" id="sub" data-i18n-ph="subject_ph"/>
+            <span class="ii">📝</span>
+          </div>
+          <span class="em-err" id="sub-e" data-i18n="subject_err">الموضوع مطلوب</span>
+        </div>
+
+        <!-- الرسالة -->
+        <div class="fg">
+          <label data-i18n="msg_label">الرسالة *</label>
+          <div class="iw">
+            <textarea id="msg" data-i18n-ph="msg_ph"></textarea>
+            <span class="ii ii-ta">💬</span>
+          </div>
+          <span class="em-err" id="msg-e" data-i18n="msg_err">الرسالة قصيرة جداً</span>
+        </div>
+
+        <button class="btn-submit" id="sbtn" onclick="sbm()">
+          <span data-i18n="send_btn">✈️ إرسال الرسالة</span>
+        </button>
+        <div class="smsg" id="smsg">
+          <span>✅</span> <span data-i18n="send_ok">تم الإرسال! سأرد عليك خلال 24 ساعة.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     FOOTER
+================================================ -->
+<footer>
+  <div class="container">
+    <div class="fg2">
+      <div class="fb2">
+        <div class="logo" style="font-size:1.5rem;display:inline-block;margin-bottom:14px">
+          <span class="logo-r">RACHID</span><span class="logo-dot">.</span><span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">DIGITAL</span>
+        </div>
+        <p class="tx-block" data-ar="مطور ويب احترافي في طنجة، المغرب. أبني مواقع تجلب العملاء وتزيد المبيعات لأصحاب الأعمال." data-fr="Développeur web professionnel à Tanger, Maroc. Je crée des sites qui attirent des clients et augmentent les ventes." data-en="Professional web developer in Tangier, Morocco. I build websites that attract clients and grow sales for business owners.">مطور ويب احترافي في طنجة، المغرب. أبني مواقع تجلب العملاء وتزيد المبيعات لأصحاب الأعمال.</p>
+      </div>
+      <div class="fcol">
+        <h4 class="tx-i" data-ar="روابط سريعة" data-fr="Liens rapides" data-en="Quick links">روابط سريعة</h4>
+        <ul class="fl">
+          <li><a href="#about"><span class="tx-i" data-ar="عني" data-fr="À propos" data-en="About">عني</span></a></li>
+          <li><a href="#portfolio"><span class="tx-i" data-ar="مشاريعي" data-fr="Projets" data-en="Projects">مشاريعي</span></a></li>
+          <li><a href="#services"><span class="tx-i" data-ar="خدماتي" data-fr="Services" data-en="Services">خدماتي</span></a></li>
+          <li><a href="#blog"><span class="tx-i" data-ar="مدونتي" data-fr="Blog" data-en="Blog">مدونتي</span></a></li>
+          <li><a href="#contact"><span class="tx-i" data-ar="تواصل" data-fr="Contact" data-en="Contact">تواصل</span></a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4 class="tx-i" data-ar="الخدمات" data-fr="Services" data-en="Services">الخدمات</h4>
+        <ul class="fl">
+          <li><a href="#services"><span class="tx-i" data-ar="متاجر إلكترونية" data-fr="E-commerce" data-en="E-commerce">متاجر إلكترونية</span></a></li>
+          <li><a href="#services"><span class="tx-i" data-ar="مواقع مطاعم" data-fr="Sites restaurants" data-en="Restaurant sites">مواقع مطاعم</span></a></li>
+          <li><a href="#services"><span class="tx-i" data-ar="مواقع مهنية" data-fr="Sites pro" data-en="Professional sites">مواقع مهنية</span></a></li>
+          <li><a href="#services"><span class="tx-i" data-ar="تحسين SEO" data-fr="Référencement SEO" data-en="SEO Optimization">تحسين SEO</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <p>© <span id="yr"></span> RACHID DIGITAL — <span class="tx-i" data-ar="جميع الحقوق محفوظة" data-fr="Tous droits réservés" data-en="All rights reserved">جميع الحقوق محفوظة</span></p>
+      <p><span class="tx-i" data-ar="صُنع بـ" data-fr="Fait avec" data-en="Made with">صُنع بـ</span> <span style="color:#ef4444">❤</span> <span class="tx-i" data-ar="في طنجة" data-fr="à Tanger" data-en="in Tangier">في طنجة</span> 🇲🇦</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Fixed buttons -->
+<button id="sct" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Top">▲</button>
+
+<a id="wa-btn" href="https://wa.me/212628537649" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <div class="wa-pulse"></div>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+<!-- ================================================
+     JAVASCRIPT
+================================================ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── 1. Phrase sets — defined FIRST so setLang can reference them ── */
+var phraseSets = {
+  ar: ['مطوّر ويب احترافي 🚀', 'خبير تجربة المستخدم 🎨', 'مبرمج React & Node.js 💻', 'شريكك الرقمي للنجاح ✨'],
+  fr: ['Développeur Web Pro 🚀', 'Expert UI/UX Design 🎨', 'Spécialiste React & Node.js 💻', 'Votre partenaire digital ✨'],
+  en: ['Professional Web Developer 🚀', 'UI/UX Design Expert 🎨', 'React & Node.js Specialist 💻', 'Your Digital Partner ✨']
+};
+var tyPhrases = phraseSets['ar'];
+var tyIdx = 0, tyChar = 0, tyDel = false;
+var tyEl = document.getElementById('ty');
+
+/* ── i18n strings ── */
+var i18n = {
+  ar: {
+    service_label: 'الخدمة المطلوبة',
+    name_label: 'الاسم الكامل *', name_ph: 'اكتب اسمك هنا...', name_err: 'يرجى إدخال الاسم',
+    email_label: 'البريد الإلكتروني *', email_err: 'بريد إلكتروني غير صحيح',
+    phone_label: 'رقم الهاتف', phone_ph: '+212 ...',
+    subject_label: 'الموضوع *', subject_ph: 'موضوع رسالتك...', subject_err: 'الموضوع مطلوب',
+    msg_label: 'رسالتك *', msg_ph: 'اكتب رسالتك هنا وسأرد عليك في أقل من 24 ساعة...', msg_err: 'الرسالة قصيرة جداً',
+    send_btn: '✈️ إرسال الرسالة', send_ok: 'تم الإرسال! سأرد عليك خلال 24 ساعة.',
+    chips: { ecom:'🛒 تجارة إلكترونية', resto:'🍽️ مطعم وتوصيل', law:'⚖️ محاماة', med:'🩺 عيادة طبية', car:'🚗 كراء سيارات', other:'💡 خدمة أخرى' }
+  },
+  fr: {
+    service_label: 'Service souhaité',
+    name_label: 'Nom complet *', name_ph: 'Votre nom...', name_err: 'Nom requis',
+    email_label: 'Adresse email *', email_err: 'Email invalide',
+    phone_label: 'Téléphone', phone_ph: '+33 / +212 ...',
+    subject_label: 'Sujet *', subject_ph: 'Objet de votre message...', subject_err: 'Sujet requis',
+    msg_label: 'Message *', msg_ph: 'Décrivez votre projet, je vous réponds en moins de 24h...', msg_err: 'Message trop court',
+    send_btn: '✈️ Envoyer le message', send_ok: 'Envoyé! Je vous réponds dans 24h.',
+    chips: { ecom:'🛒 E-commerce', resto:'🍽️ Restaurant', law:'⚖️ Cabinet juridique', med:'🩺 Cabinet médical', car:'🚗 Location auto', other:'💡 Autre service' }
+  },
+  en: {
+    service_label: 'Service needed',
+    name_label: 'Full Name *', name_ph: 'Your name...', name_err: 'Name is required',
+    email_label: 'Email address *', email_err: 'Invalid email address',
+    phone_label: 'Phone number', phone_ph: '+1 / +212 ...',
+    subject_label: 'Subject *', subject_ph: 'What is this about?', subject_err: 'Subject is required',
+    msg_label: 'Message *', msg_ph: 'Tell me about your project, I reply within 24 hours...', msg_err: 'Message is too short',
+    send_btn: '✈️ Send Message', send_ok: "Sent! I'll reply within 24 hours.",
+    chips: { ecom:'🛒 E-commerce', resto:'🍽️ Restaurant', law:'⚖️ Law Firm', med:'🩺 Medical Clinic', car:'🚗 Car Rental', other:'💡 Other service' }
+  }
+};
+
+function applyI18n(lang) {
+  var t = i18n[lang];
+  if (!t) return;
+  /* text nodes */
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
+  /* placeholders */
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n-ph');
+    if (t[key] !== undefined) el.setAttribute('placeholder', t[key]);
+  });
+  /* service chips */
+  document.querySelectorAll('[data-i18n-chip]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n-chip');
+    if (t.chips && t.chips[key] !== undefined) el.textContent = t.chips[key];
+  });
+}
+
+/* ── 2. Language Switcher ── */
+var INLINE_TAGS = ['span','a','label','strong','em','small','b','i','button'];
+
+function showLang(lang) {
+  /* 1. data-ar/fr/en elements — update innerHTML */
+  document.querySelectorAll('[data-ar]').forEach(function(el) {
+    var txt = el.getAttribute('data-' + lang);
+    if (txt) el.innerHTML = txt;
+  });
+
+  /* 2. testimonial paragraphs */
+  document.querySelectorAll('.tt2').forEach(function(el) { el.style.display = 'block'; });
+  document.querySelectorAll('.tt2-fr, .tt2-en').forEach(function(el) { el.style.display = 'none'; });
+  if (lang === 'fr') {
+    document.querySelectorAll('.tt2').forEach(function(el) { el.style.display = 'none'; });
+    document.querySelectorAll('.tt2-fr').forEach(function(el) { el.style.display = 'block'; });
+  } else if (lang === 'en') {
+    document.querySelectorAll('.tt2').forEach(function(el) { el.style.display = 'none'; });
+    document.querySelectorAll('.tt2-en').forEach(function(el) { el.style.display = 'block'; });
+  }
+
+  /* 3. author names */
+  document.querySelectorAll('.an-ar').forEach(function(el) { el.style.display = lang === 'ar' ? 'inline' : 'none'; });
+  document.querySelectorAll('.an-fr').forEach(function(el) { el.style.display = lang !== 'ar' ? 'inline' : 'none'; });
+
+  /* 4. old .t-* elements still in file (CSS) */
+  document.querySelectorAll('.t-ar, .t-fr, .t-en').forEach(function(el) { el.style.display = 'none'; });
+  document.querySelectorAll('.t-' + lang).forEach(function(el) {
+    var tag = el.tagName.toLowerCase();
+    el.style.display = (['span','a','button','label','strong'].indexOf(tag) !== -1) ? 'inline' : 'block';
+  });
+}
+
+
+function setLang(lang) {
+  var html = document.documentElement;
+  html.setAttribute('data-lang', lang);
+  html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  html.setAttribute('lang', lang);
+  /* lang buttons */
+  document.querySelectorAll('.lang-btn').forEach(function(b) {
+    b.classList.remove('act');
+    if ((b.textContent.trim() === 'عر' && lang === 'ar') ||
+        (b.textContent.trim() === 'FR' && lang === 'fr') ||
+        (b.textContent.trim() === 'EN' && lang === 'en')) {
+      b.classList.add('act');
+    }
+  });
+  showLang(lang);
+  applyI18n(lang);
+  tyPhrases = phraseSets[lang];
+  tyIdx = 0; tyChar = 0; tyDel = false;
+  if (tyEl) tyEl.textContent = '';
+  localStorage.setItem('rd_lang', lang);
+}
+
+/* ── 3. Theme toggle ── */
+var bd = document.body;
+var ti = document.getElementById('ti');
+if (localStorage.getItem('rd_theme') === 'light') { bd.classList.add('light'); ti.textContent = '🌙'; }
+document.getElementById('tt').addEventListener('click', function() {
+  bd.classList.toggle('light');
+  var isLight = bd.classList.contains('light');
+  ti.textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('rd_theme', isLight ? 'light' : 'dark');
+});
+
+/* ── 4. Init saved lang (now safe — phraseSets already defined) ── */
+var savedLang = localStorage.getItem('rd_lang') || 'ar';
+setLang(savedLang);
+
+/* ── 5. Navbar scroll ── */
+var nb = document.getElementById('nb');
+var sct = document.getElementById('sct');
+var nls = document.querySelectorAll('.nl a');
+var secs = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', function() {
+  nb.classList.toggle('sc', window.scrollY > 50);
+  sct.classList.toggle('vis', window.scrollY > 400);
+  var cur = '';
+  secs.forEach(function(s) { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+  nls.forEach(function(l) { l.classList.toggle('act', l.getAttribute('href') === '#' + cur); });
+});
+
+/* ── 6. Mobile menu ── */
+var mt = document.getElementById('mt');
+var nl = document.getElementById('nl');
+mt.addEventListener('click', function() {
+  var op = nl.classList.toggle('op');
+  mt.classList.toggle('op', op);
+  mt.setAttribute('aria-expanded', op);
+});
+nl.querySelectorAll('a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    nl.classList.remove('op'); mt.classList.remove('op'); mt.setAttribute('aria-expanded','false');
+  });
+});
+
+/* ── 7. Typing Effect ── */
+function tp() {
+  if (!tyPhrases || !tyPhrases.length) { setTimeout(tp, 200); return; }
+  var p = tyPhrases[tyIdx];
+  tyEl.textContent = tyDel ? p.slice(0, --tyChar) : p.slice(0, ++tyChar);
+  if (!tyDel && tyChar === p.length) { tyDel = true; setTimeout(tp, 1800); return; }
+  if (tyDel && tyChar === 0) { tyDel = false; tyIdx = (tyIdx + 1) % tyPhrases.length; }
+  setTimeout(tp, tyDel ? 50 : 85);
+}
+tp();
+
+/* ── 7. Intersection Observer ── */
+var skillsDone = false;
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (!e.isIntersecting) return;
+    if (e.target.classList.contains('fi')) e.target.classList.add('vis');
+    if (!skillsDone && e.target.closest && e.target.closest('#about')) {
+      document.querySelectorAll('.skf').forEach(function(b) { b.style.width = b.dataset.w + '%'; });
+      skillsDone = true;
+    }
+    if (e.target.classList.contains('cnt') || e.target.classList.contains('cnt2')) ac(e.target);
+    obs.unobserve(e.target);
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fi, .cnt, .cnt2').forEach(function(el) { obs.observe(el); });
+
+/* ── 8. Counter Animation ── */
+function ac(el) {
+  var tg = +el.dataset.t, dur = 1600, st = performance.now();
+  function up(n) {
+    var p = Math.min((n - st) / dur, 1);
+    el.textContent = Math.round(p * tg) + '+';
+    if (p < 1) requestAnimationFrame(up);
+  }
+  requestAnimationFrame(up);
+}
+
+/* ── 9. Portfolio Filter ── */
+document.querySelectorAll('.fb').forEach(function(b) {
+  b.addEventListener('click', function() {
+    document.querySelectorAll('.fb').forEach(function(x) { x.classList.remove('act'); });
+    b.classList.add('act');
+    var f = b.dataset.f;
+    document.querySelectorAll('.pc').forEach(function(c) {
+      c.style.display = (f === 'all' || c.dataset.cat === f) ? '' : 'none';
+    });
+  });
+});
+
+/* ── 10. Testimonials Slider ── */
+var si = 0;
+var ttr = document.getElementById('ttr');
+function gts(i) {
+  si = i;
+  var cw = ttr.children[0].offsetWidth + 24;
+  ttr.style.transform = 'translateX(' + (i * cw * (document.documentElement.dir === 'rtl' ? 1 : -1)) + 'px)';
+  document.querySelectorAll('.dot').forEach(function(d, j) { d.classList.toggle('act', j === i); });
+}
+setInterval(function() { si = (si + 1) % 3; gts(si); }, 4500);
+
+/* ── 11. Service chips ── */
+document.querySelectorAll('.s-chip').forEach(function(chip) {
+  chip.addEventListener('click', function() {
+    document.querySelectorAll('.s-chip').forEach(function(c) { c.classList.remove('sel'); });
+    this.classList.add('sel');
+  });
+});
+
+/* ── 12. Contact Form ── */
+function vf(id, eid, fn) {
+  var el = document.getElementById(id), er = document.getElementById(eid);
+  var ok = fn(el.value.trim());
+  el.classList.toggle('er', !ok); if(er) er.classList.toggle('sh', !ok);
+  return ok;
+}
+function sbm() {
+  var ok = [
+    vf('nm',  'nm-e',  function(v) { return v.length >= 2; }),
+    vf('em2', 'em2-e', function(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }),
+    vf('sub', 'sub-e', function(v) { return v.length >= 3; }),
+    vf('msg', 'msg-e', function(v) { return v.length >= 10; })
+  ].every(Boolean);
+  if (!ok) return;
+  var btn = document.getElementById('sbtn');
+  btn.disabled = true; btn.style.opacity = '.7';
+  setTimeout(function() {
+    document.getElementById('smsg').classList.add('sh');
+    btn.disabled = false; btn.style.opacity = '1';
+    ['nm','em2','phone','sub','msg'].forEach(function(id) {
+      var el = document.getElementById(id); if (el) el.value = '';
+    });
+    document.querySelectorAll('.s-chip').forEach(function(c,i) { c.classList.toggle('sel', i===0); });
+    setTimeout(function() { document.getElementById('smsg').classList.remove('sh'); }, 6000);
+  }, 1500);
+}
+['nm','em2','sub','msg'].forEach(function(id) {
+  var el = document.getElementById(id); if (!el) return;
+  el.addEventListener('input', function() {
+    this.classList.remove('er');
+    var er = document.getElementById(id === 'em2' ? 'em2-e' : id + '-e');
+    if (er) er.classList.remove('sh');
+  });
+});
+
+/* ── 13. Year ── */
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+
+<!-- ── CTA Bar ثابت ── -->
+<div id="cta-bar">
+  <span class="cta-text tx-i"
+    data-ar="🚀 هل أنت مستعد لإطلاق موقعك؟"
+    data-fr="🚀 Prêt à lancer votre site ?"
+    data-en="🚀 Ready to launch your website?">
+    🚀 هل أنت مستعد لإطلاق موقعك؟
+  </span>
+  <a href="#contact" class="cta-btn" id="cta-btn">
+    <span>✨</span>
+    <span class="tx-i"
+      data-ar="ابدأ مشروعك الآن"
+      data-fr="Démarrez maintenant"
+      data-en="Start your project now">ابدأ مشروعك الآن</span>
+    <span>→</span>
+  </a>
+</div>
+
+<script>
+/* ── CTA Bar ── */
+(function() {
+  var bar = document.getElementById('cta-bar');
+  var btn = document.getElementById('cta-btn');
+  var contact = document.getElementById('contact');
+
+  function updateCTA() {
+    var scrolled = window.scrollY > 200;
+    var atContact = contact && (window.scrollY + window.innerHeight) >= (contact.offsetTop - 60);
+    bar.classList.toggle('vis', scrolled && !atContact);
+  }
+
+  window.addEventListener('scroll', updateCTA);
+  updateCTA(); /* run once on load */
+
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function() {
+      var f = contact.querySelector('input, textarea');
+      if (f) f.focus();
+    }, 700);
+  });
+})();
+</script>
+
+<!-- ══════════════════════════════════════
+     ADMIN PANEL
+══════════════════════════════════════ -->
+
+<!-- زر فتح اللوحة -->
+<button id="admin-trigger" onclick="openAdmin()" title="لوحة التحكم">⚙ ADMIN</button>
+
+<!-- Overlay -->
+<div id="admin-overlay" onclick="closeAdmin()"></div>
+
+<!-- اللوحة -->
+<div id="admin-panel">
+  <!-- Header -->
+  <div class="ap-head">
+    <h2>⚙️ لوحة التحكم</h2>
+    <div class="ap-head-right">
+      <button class="ap-logout" id="ap-logout-btn" style="display:none" onclick="apLogout()">خروج</button>
+      <button class="ap-close" onclick="closeAdmin()">✕</button>
+    </div>
+  </div>
+
+  <!-- شاشة تسجيل الدخول -->
+  <div id="ap-login">
+    <div class="ap-lock-icon">🔐</div>
+    <h3>لوحة تحكم المطور</h3>
+    <p>أدخل كلمة المرور للوصول إلى إعدادات الموقع</p>
+    <input type="password" id="ap-pwd" placeholder="••••••••" onkeydown="if(event.key==='Enter')apLogin()"/>
+    <p id="ap-err">❌ كلمة المرور غير صحيحة</p>
+    <button id="ap-login-btn" onclick="apLogin()">🔓 دخول</button>
+  </div>
+
+  <!-- المحتوى الرئيسي -->
+  <div id="ap-main">
+    <!-- Tabs -->
+    <div class="ap-tabs">
+      <button class="ap-tab act" onclick="apTab(this,'pane-info')">👤 معلوماتي</button>
+      <button class="ap-tab" onclick="apTab(this,'pane-projects')">💼 مشاريع</button>
+      <button class="ap-tab" onclick="apTab(this,'pane-services')">⚙️ خدمات</button>
+      <button class="ap-tab" onclick="apTab(this,'pane-blog')">📝 مدونة</button>
+      <button class="ap-tab" onclick="apTab(this,'pane-contact')">📞 تواصل</button>
+      <button class="ap-tab" onclick="apTab(this,'pane-gallery')">🖼️ معرض</button>
+    </div>
+
+    <!-- ═══ TAB: معلوماتي ═══ -->
+    <div id="pane-info" class="ap-pane act">
+      <div class="ap-section-title">🏷️ الاسم والعنوان</div>
+      <div class="ap-field">
+        <label class="ap-label">الاسم (يظهر في Hero)</label>
+        <input class="ap-input" id="ap-name" placeholder="Rachid"/>
+      </div>
+      <div class="ap-field">
+        <label class="ap-label">المسمى الوظيفي (عربي)</label>
+        <input class="ap-input" id="ap-title-ar" placeholder="مطوّر ويب"/>
+      </div>
+      <div class="ap-field">
+        <label class="ap-label">المسمى الوظيفي (فرنسي)</label>
+        <input class="ap-input" id="ap-title-fr" placeholder="Développeur Web"/>
+      </div>
+      <div class="ap-field">
+        <label class="ap-label">المسمى الوظيفي (إنجليزي)</label>
+        <input class="ap-input" id="ap-title-en" placeholder="Web Developer"/>
+      </div>
+
+      <div class="ap-section-title" style="margin-top:20px">📝 النبذة الشخصية</div>
+      <div class="ap-field">
+        <label class="ap-label">نبذة عني (عربي)</label>
+        <textarea class="ap-textarea" id="ap-about-ar" rows="4"></textarea>
+      </div>
+      <div class="ap-field">
+        <label class="ap-label">نبذة عني (فرنسي)</label>
+        <textarea class="ap-textarea" id="ap-about-fr" rows="4"></textarea>
+      </div>
+      <div class="ap-field">
+        <label class="ap-label">نبذة عني (إنجليزي)</label>
+        <textarea class="ap-textarea" id="ap-about-en" rows="4"></textarea>
+      </div>
+
+      <div class="ap-section-title" style="margin-top:20px">🖼️ الصورة الشخصية</div>
+      <div class="ap-img-zone" id="avatar-zone">
+        <input type="file" accept="image/*" onchange="previewAvatar(this)"/>
+        <div class="iz-icon">📷</div>
+        <p>اضغط لرفع صورتك الشخصية</p>
+      </div>
+      <div class="ap-img-thumb" id="avatar-preview"></div>
+    </div>
+
+    <!-- ═══ TAB: مشاريع ═══ -->
+    <div id="pane-projects" class="ap-pane">
+      <div class="ap-section-title">💼 المشاريع</div>
+      <div id="ap-projects-list"></div>
+      <button class="ap-add-btn" onclick="addProject()">+ إضافة مشروع جديد</button>
+    </div>
+
+    <!-- ═══ TAB: خدمات ═══ -->
+    <div id="pane-services" class="ap-pane">
+      <div class="ap-section-title">⚙️ الخدمات</div>
+      <div id="ap-services-list"></div>
+      <button class="ap-add-btn" onclick="addService()">+ إضافة خدمة جديدة</button>
+    </div>
+
+    <!-- ═══ TAB: مدونة ═══ -->
+    <div id="pane-blog" class="ap-pane">
+      <div class="ap-section-title">📝 المقالات</div>
+      <div id="ap-blog-list"></div>
+      <button class="ap-add-btn" onclick="addBlog()">+ إضافة مقال جديد</button>
+    </div>
+
+    <!-- ═══ TAB: تواصل ═══ -->
+    <div id="pane-contact" class="ap-pane">
+      <div class="ap-section-title">📞 معلومات التواصل</div>
+      <div class="ap-field">
+        <label class="ap-label">البريد الإلكتروني</label>
+        <input class="ap-input" id="ap-email" type="email"/>
+      </div>
+      <div class="ap-field">
+        <label class="ap-label">هاتف المغرب</label>
+        <input class="ap-input" id="ap-phone-ma"/>
+      </div>
+      <div class="ap-field">
+        <label class="ap-label">هاتف دول أخرى</label>
+        <input class="ap-input" id="ap-phone-int"/>
+      </div>
+      <div class="ap-field">
+        <label class="ap-label">المدينة (عربي)</label>
+        <input class="ap-input" id="ap-city-ar"/>
+      </div>
+      <div class="ap-field">
+        <label class="ap-label">رابط واتساب</label>
+        <input class="ap-input" id="ap-wa-link" placeholder="https://wa.me/212..."/>
+      </div>
+      <div class="ap-field">
+        <label class="ap-label">رابط LinkedIn</label>
+        <input class="ap-input" id="ap-linkedin"/>
+      </div>
+      <div class="ap-field">
+        <label class="ap-label">رابط GitHub</label>
+        <input class="ap-input" id="ap-github"/>
+      </div>
+    </div>
+
+    <!-- ═══ TAB: معرض ═══ -->
+    <div id="pane-gallery" class="ap-pane">
+      <div class="ap-section-title">🖼️ معرض الصور والأعمال</div>
+      <div class="ap-img-zone">
+        <input type="file" accept="image/*" multiple onchange="addGallery(this)"/>
+        <div class="iz-icon">📁</div>
+        <p>اضغط لرفع صور أعمالك (يمكن رفع عدة صور)</p>
+      </div>
+      <div class="ap-img-thumb" id="gallery-preview"></div>
+      <div id="gallery-list" style="margin-top:10px"></div>
+    </div>
+
+    <!-- شريط الحفظ -->
+    <div class="ap-save-bar">
+      <button class="ap-save" onclick="apSave()">💾 حفظ التغييرات</button>
+      <button class="ap-discard" onclick="apLoad()">↩ إلغاء</button>
+      <span class="ap-ok" id="ap-ok">✅ تم الحفظ!</span>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════
+   ADMIN PANEL JS
+══════════════════════════════════════ */
+var AP_KEY = 'rachid_admin_2024'; /* ← غيّر كلمة المرور هنا */
+var AP_STORE = 'rd_admin_data';
+
+/* ── Open / Close ── */
+function openAdmin() {
+  document.getElementById('admin-overlay').classList.add('open');
+  document.getElementById('admin-panel').classList.add('open');
+  /* إذا كان مسجلاً بالفعل */
+  if (sessionStorage.getItem('ap_auth') === '1') apUnlock();
+}
+function closeAdmin() {
+  document.getElementById('admin-overlay').classList.remove('open');
+  document.getElementById('admin-panel').classList.remove('open');
+}
+
+/* ── Login ── */
+function apLogin() {
+  var pwd = document.getElementById('ap-pwd').value;
+  var err = document.getElementById('ap-err');
+  if (pwd === AP_KEY) {
+    err.classList.remove('show');
+    sessionStorage.setItem('ap_auth','1');
+    apUnlock();
+  } else {
+    err.classList.add('show');
+    document.getElementById('ap-pwd').value = '';
+  }
+}
+function apUnlock() {
+  document.getElementById('ap-login').style.display = 'none';
+  document.getElementById('ap-main').classList.add('show');
+  document.getElementById('ap-logout-btn').style.display = 'block';
+  apLoad();
+}
+function apLogout() {
+  sessionStorage.removeItem('ap_auth');
+  document.getElementById('ap-main').classList.remove('show');
+  document.getElementById('ap-login').style.display = 'flex';
+  document.getElementById('ap-logout-btn').style.display = 'none';
+  document.getElementById('ap-pwd').value = '';
+}
+
+/* ── Tabs ── */
+function apTab(btn, paneId) {
+  document.querySelectorAll('.ap-tab').forEach(function(t){ t.classList.remove('act'); });
+  document.querySelectorAll('.ap-pane').forEach(function(p){ p.classList.remove('act'); });
+  btn.classList.add('act');
+  document.getElementById(paneId).classList.add('act');
+}
+
+/* ── Data ── */
+function apGetData() {
+  try { return JSON.parse(localStorage.getItem(AP_STORE)) || {}; } catch(e) { return {}; }
+}
+
+/* ── Load saved data into fields ── */
+function apLoad() {
+  var d = apGetData();
+
+  /* Info */
+  setVal('ap-name', d.name || 'Rachid');
+  setVal('ap-title-ar', d.title_ar || 'مطوّر ويب');
+  setVal('ap-title-fr', d.title_fr || 'Développeur Web');
+  setVal('ap-title-en', d.title_en || 'Web Developer');
+  setVal('ap-about-ar', d.about_ar || '');
+  setVal('ap-about-fr', d.about_fr || '');
+  setVal('ap-about-en', d.about_en || '');
+
+  /* Contact */
+  setVal('ap-email', d.email || 'dotcom0725@gmail.com');
+  setVal('ap-phone-ma', d.phone_ma || '+212 628 537 649');
+  setVal('ap-phone-int', d.phone_int || '+1 514 690 6018');
+  setVal('ap-city-ar', d.city_ar || 'طنجة، المغرب 🇲🇦');
+  setVal('ap-wa-link', d.wa_link || 'https://wa.me/212628537649');
+  setVal('ap-linkedin', d.linkedin || '#');
+  setVal('ap-github', d.github || '#');
+
+  /* Projects */
+  renderProjects(d.projects || getDefaultProjects());
+
+  /* Services */
+  renderServices(d.services || getDefaultServices());
+
+  /* Blog */
+  renderBlog(d.blog || getDefaultBlog());
+
+  /* Gallery */
+  renderGallery(d.gallery || []);
+
+  /* Avatar */
+  if (d.avatar) {
+    var prev = document.getElementById('avatar-preview');
+    prev.innerHTML = '<img src="' + d.avatar + '" style="width:80px;height:80px;object-fit:cover;border-radius:50%;border:2px solid #10b981"/>';
+    /* Update page avatar */
+    updateAvatar(d.avatar);
+  }
+}
+
+function setVal(id, val) {
+  var el = document.getElementById(id);
+  if (el) el.value = val;
+}
+
+/* ── Save ── */
+function apSave() {
+  var d = apGetData();
+
+  d.name      = gv('ap-name');
+  d.title_ar  = gv('ap-title-ar');
+  d.title_fr  = gv('ap-title-fr');
+  d.title_en  = gv('ap-title-en');
+  d.about_ar  = gv('ap-about-ar');
+  d.about_fr  = gv('ap-about-fr');
+  d.about_en  = gv('ap-about-en');
+  d.email     = gv('ap-email');
+  d.phone_ma  = gv('ap-phone-ma');
+  d.phone_int = gv('ap-phone-int');
+  d.city_ar   = gv('ap-city-ar');
+  d.wa_link   = gv('ap-wa-link');
+  d.linkedin  = gv('ap-linkedin');
+  d.github    = gv('ap-github');
+  d.projects  = collectProjects();
+  d.services  = collectServices();
+  d.blog      = collectBlog();
+
+  localStorage.setItem(AP_STORE, JSON.stringify(d));
+
+  /* Apply changes live */
+  applyToPage(d);
+
+  /* Success msg */
+  var ok = document.getElementById('ap-ok');
+  ok.classList.add('show');
+  setTimeout(function(){ ok.classList.remove('show'); }, 3000);
+}
+
+function gv(id) {
+  var el = document.getElementById(id);
+  return el ? el.value.trim() : '';
+}
+
+/* ── Apply changes to live page ── */
+function applyToPage(d) {
+  /* Name */
+  document.querySelectorAll('.grad-text').forEach(function(el) {
+    el.textContent = d.name;
+  });
+  /* Title */
+  document.querySelectorAll('[data-ar="مطوّر ويب"],[data-ar="مطوير ويب"]').forEach(function(el) {
+    el.setAttribute('data-ar', d.title_ar);
+    el.setAttribute('data-fr', d.title_fr);
+    el.setAttribute('data-en', d.title_en);
+  });
+  /* About paragraph */
+  document.querySelectorAll('.about-text .tx-block').forEach(function(el, i) {
+    if (i === 1) { /* paragraph */
+      el.setAttribute('data-ar', d.about_ar);
+      el.setAttribute('data-fr', d.about_fr);
+      el.setAttribute('data-en', d.about_en);
+    }
+  });
+  /* Contact info */
+  apUpdateContact(d);
+  /* Re-run language display */
+  var lang = document.documentElement.getAttribute('data-lang') || 'ar';
+  showLang(lang);
+}
+
+function apUpdateContact(d) {
+  /* Email */
+  document.querySelectorAll('.cit p').forEach(function(el) {
+    if (el.textContent.includes('@')) el.textContent = d.email;
+  });
+  /* WhatsApp link */
+  var wa = document.getElementById('wa-btn');
+  if (wa && d.wa_link) wa.href = d.wa_link;
+}
+
+/* ── Projects rendering ── */
+function getDefaultProjects() {
+  return [
+    {icon:'🛒', title_ar:'متجر إلكتروني + صفحة هبوط', desc_ar:'متجر متكامل مع صفحة هبوط احترافية', cat:'ecom'},
+    {icon:'🍽️', title_ar:'موقع مطعم + توصيل', desc_ar:'موقع مطعم مع نظام طلب وتوصيل', cat:'resto'},
+    {icon:'⚖️', title_ar:'موقع مكتب محاماة', desc_ar:'موقع احترافي لمكتب محاماة', cat:'pro'},
+    {icon:'🩺', title_ar:'موقع عيادة طبيب', desc_ar:'موقع عيادة مع حجز مواعيد', cat:'pro'},
+    {icon:'🚗', title_ar:'وكالة كراء السيارات', desc_ar:'منصة كراء سيارات متكاملة', cat:'serv'},
+    {icon:'🔧', title_ar:'كراج ميكانيك', desc_ar:'موقع كراج مع نظام حجز', cat:'serv'}
+  ];
+}
+
+function renderProjects(projects) {
+  var list = document.getElementById('ap-projects-list');
+  list.innerHTML = '';
+  projects.forEach(function(p, i) {
+    list.innerHTML += apProjectCard(p, i);
+  });
+}
+
+function apProjectCard(p, i) {
+  return '<div class="ap-card" id="pc-' + i + '">' +
+    '<div class="ap-card-head"><span>' + (p.icon||'📁') + ' مشروع ' + (i+1) + '</span>' +
+    '<button class="ap-del" onclick="delProject(' + i + ')">🗑</button></div>' +
+    '<div class="ap-field"><label class="ap-label">الأيقونة</label>' +
+    '<input class="ap-input" id="pj-icon-'+i+'" value="'+(p.icon||'📁')+'"/></div>' +
+    '<div class="ap-field"><label class="ap-label">العنوان (عربي)</label>' +
+    '<input class="ap-input" id="pj-tar-'+i+'" value="'+(p.title_ar||'')+'"/></div>' +
+    '<div class="ap-field"><label class="ap-label">الوصف (عربي)</label>' +
+    '<textarea class="ap-textarea" id="pj-dar-'+i+'" rows="2">'+(p.desc_ar||'')+'</textarea></div>' +
+    '<div class="ap-field"><label class="ap-label">رابط المعاينة</label>' +
+    '<input class="ap-input" id="pj-url-'+i+'" value="'+(p.url||'#')+'"/></div>' +
+    '</div>';
+}
+
+function collectProjects() {
+  var list = document.getElementById('ap-projects-list');
+  var cards = list.querySelectorAll('.ap-card');
+  var out = [];
+  cards.forEach(function(c, i) {
+    out.push({
+      icon: gv('pj-icon-'+i),
+      title_ar: gv('pj-tar-'+i),
+      desc_ar: gv('pj-dar-'+i),
+      url: gv('pj-url-'+i)
+    });
+  });
+  return out;
+}
+
+function addProject() {
+  var d = apGetData();
+  var projects = d.projects || getDefaultProjects();
+  var idx = document.getElementById('ap-projects-list').querySelectorAll('.ap-card').length;
+  document.getElementById('ap-projects-list').innerHTML += apProjectCard({icon:'📁',title_ar:'مشروع جديد',desc_ar:'',url:'#'}, idx);
+}
+
+function delProject(i) {
+  var cards = document.getElementById('ap-projects-list').querySelectorAll('.ap-card');
+  if (cards[i]) cards[i].remove();
+  /* Re-index */
+  document.getElementById('ap-projects-list').querySelectorAll('.ap-card').forEach(function(c,j){
+    c.id = 'pc-'+j;
+  });
+}
+
+/* ── Services rendering ── */
+function getDefaultServices() {
+  return [
+    {icon:'🎨', title_ar:'تصميم UI/UX', desc_ar:'تصميم واجهات مستخدم احترافية'},
+    {icon:'💻', title_ar:'تطوير مواقع', desc_ar:'مواقع سريعة وآمنة'},
+    {icon:'🛒', title_ar:'متاجر إلكترونية', desc_ar:'متاجر كاملة مع نظام دفع'},
+    {icon:'📈', title_ar:'تحسين SEO', desc_ar:'تحسين ترتيب موقعك في جوجل'}
+  ];
+}
+
+function renderServices(services) {
+  var list = document.getElementById('ap-services-list');
+  list.innerHTML = '';
+  services.forEach(function(s, i) {
+    list.innerHTML += '<div class="ap-card">' +
+      '<div class="ap-card-head"><span>' + (s.icon||'⚙️') + ' خدمة ' + (i+1) + '</span>' +
+      '<button class="ap-del" onclick="delService(this)">🗑</button></div>' +
+      '<div class="ap-field"><label class="ap-label">الأيقونة</label>' +
+      '<input class="ap-input sv-icon" value="'+(s.icon||'⚙️')+'"/></div>' +
+      '<div class="ap-field"><label class="ap-label">العنوان (عربي)</label>' +
+      '<input class="ap-input sv-tar" value="'+(s.title_ar||'')+'"/></div>' +
+      '<div class="ap-field"><label class="ap-label">الوصف (عربي)</label>' +
+      '<textarea class="ap-textarea sv-dar" rows="2">'+(s.desc_ar||'')+'</textarea></div>' +
+      '</div>';
+  });
+}
+
+function collectServices() {
+  var out = [];
+  document.querySelectorAll('#ap-services-list .ap-card').forEach(function(c) {
+    out.push({
+      icon: c.querySelector('.sv-icon').value,
+      title_ar: c.querySelector('.sv-tar').value,
+      desc_ar: c.querySelector('.sv-dar').value
+    });
+  });
+  return out;
+}
+
+function addService() {
+  renderServices((apGetData().services || getDefaultServices()).concat({icon:'⚙️',title_ar:'خدمة جديدة',desc_ar:''}));
+}
+
+function delService(btn) { btn.closest('.ap-card').remove(); }
+
+/* ── Blog rendering ── */
+function getDefaultBlog() {
+  return [
+    {icon:'🎯', title_ar:'لماذا يحتاج عملك موقعاً احترافياً؟', desc_ar:'75% من العملاء يحكمون على مصداقية الشركة من موقعها.', cat_ar:'تطوير'},
+    {icon:'🚀', title_ar:'كيف تحقق نتيجة 98/100 في Google PageSpeed', desc_ar:'دليل شامل لتحسين سرعة موقعك.', cat_ar:'أداء'},
+    {icon:'📱', title_ar:'أفضل 5 نصائح لموقع مطعم يجذب الزبائن', desc_ar:'كل ما يحول الزوار إلى زبائن فعليين.', cat_ar:'تصميم'}
+  ];
+}
+
+function renderBlog(posts) {
+  var list = document.getElementById('ap-blog-list');
+  list.innerHTML = '';
+  posts.forEach(function(p, i) {
+    list.innerHTML += '<div class="ap-card">' +
+      '<div class="ap-card-head"><span>' + (p.icon||'📝') + ' مقال ' + (i+1) + '</span>' +
+      '<button class="ap-del" onclick="delBlog(this)">🗑</button></div>' +
+      '<div class="ap-field"><label class="ap-label">الأيقونة</label>' +
+      '<input class="ap-input bl-icon" value="'+(p.icon||'📝')+'"/></div>' +
+      '<div class="ap-field"><label class="ap-label">العنوان (عربي)</label>' +
+      '<input class="ap-input bl-tar" value="'+(p.title_ar||'')+'"/></div>' +
+      '<div class="ap-field"><label class="ap-label">المقتطف (عربي)</label>' +
+      '<textarea class="ap-textarea bl-dar" rows="2">'+(p.desc_ar||'')+'</textarea></div>' +
+      '<div class="ap-field"><label class="ap-label">الفئة</label>' +
+      '<input class="ap-input bl-cat" value="'+(p.cat_ar||'تطوير')+'"/></div>' +
+      '<div class="ap-field"><label class="ap-label">رابط المقال</label>' +
+      '<input class="ap-input bl-url" value="'+(p.url||'#')+'"/></div>' +
+      '</div>';
+  });
+}
+
+function collectBlog() {
+  var out = [];
+  document.querySelectorAll('#ap-blog-list .ap-card').forEach(function(c) {
+    out.push({
+      icon: c.querySelector('.bl-icon').value,
+      title_ar: c.querySelector('.bl-tar').value,
+      desc_ar: c.querySelector('.bl-dar').value,
+      cat_ar: c.querySelector('.bl-cat').value,
+      url: c.querySelector('.bl-url').value
+    });
+  });
+  return out;
+}
+
+function addBlog() {
+  renderBlog((apGetData().blog || getDefaultBlog()).concat({icon:'📝',title_ar:'مقال جديد',desc_ar:'',cat_ar:'تطوير',url:'#'}));
+}
+function delBlog(btn) { btn.closest('.ap-card').remove(); }
+
+/* ── Gallery ── */
+function addGallery(input) {
+  var d = apGetData();
+  d.gallery = d.gallery || [];
+  var files = Array.from(input.files);
+  var pending = files.length;
+  files.forEach(function(file) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      d.gallery.push(e.target.result);
+      pending--;
+      if (pending === 0) {
+        localStorage.setItem(AP_STORE, JSON.stringify(d));
+        renderGallery(d.gallery);
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function renderGallery(images) {
+  var thumb = document.getElementById('gallery-preview');
+  var list  = document.getElementById('gallery-list');
+  thumb.innerHTML = '';
+  list.innerHTML  = '';
+  images.forEach(function(src, i) {
+    thumb.innerHTML += '<img src="'+src+'" title="صورة '+(i+1)+'">';
+    list.innerHTML  += '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;background:rgba(255,255,255,.03);padding:6px 10px;border-radius:8px">' +
+      '<span style="font-size:.8rem;color:#64748b">🖼️ صورة '+(i+1)+'</span>' +
+      '<button class="ap-del" onclick="delGallery('+i+')">🗑</button></div>';
+  });
+}
+
+function delGallery(i) {
+  var d = apGetData();
+  d.gallery = d.gallery || [];
+  d.gallery.splice(i, 1);
+  localStorage.setItem(AP_STORE, JSON.stringify(d));
+  renderGallery(d.gallery);
+}
+
+/* ── Avatar ── */
+function previewAvatar(input) {
+  if (!input.files[0]) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var src = e.target.result;
+    document.getElementById('avatar-preview').innerHTML =
+      '<img src="'+src+'" style="width:80px;height:80px;object-fit:cover;border-radius:50%;border:2px solid #10b981"/>';
+    updateAvatar(src);
+    var d = apGetData(); d.avatar = src;
+    localStorage.setItem(AP_STORE, JSON.stringify(d));
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function updateAvatar(src) {
+  var avatarEl = document.querySelector('.hero-avatar-inner');
+  if (avatarEl) {
+    avatarEl.innerHTML = '<img src="'+src+'" style="width:100%;height:100%;border-radius:50%;object-fit:cover"/>';
+  }
+}
+
+/* ── Auto-load on page start ── */
+(function() {
+  var d = apGetData();
+  if (Object.keys(d).length > 0) applyToPage(d);
+})();
+</script>
+</body>
+</html>
