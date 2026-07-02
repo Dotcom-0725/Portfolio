@@ -88,6 +88,11 @@ table.p-items{width:100%;border-collapse:collapse;margin-top:4px}
 .p-tva{margin-top:8px;font-size:8.5pt;color:var(--ink2);font-style:italic}
 .p-valid{margin-top:8px;font-size:9pt;color:var(--ink2)}
 
+.p-pay{margin-top:14px;border:1px solid #bfdbfe;background:#f8fafc;border-radius:8px;padding:10px 14px;font-size:9.5pt}
+.p-pay h4{font-size:8pt;text-transform:uppercase;letter-spacing:1px;color:#1e50a2;margin-bottom:4px}
+.p-pay .bank{font-weight:800;color:#111827}
+.p-pay div{color:#374151}
+.p-pay b{font-family:'Courier New',monospace;font-size:9.5pt;letter-spacing:.5px}
 .p-sign{margin-top:26px;display:flex;justify-content:flex-end}
 .p-sign .sig{text-align:center;font-size:9pt;color:var(--ink2)}
 .p-sign .sig .line-sig{width:180px;border-bottom:1px solid var(--ink2);height:52px;margin-bottom:4px}
@@ -224,6 +229,14 @@ table.p-items{width:100%;border-collapse:collapse;margin-top:4px}
         <p class="p-valid" id="pValid" style="display:none">Devis valable 30 jours à compter de la date d'émission.</p>
         <p class="p-valid" id="pNotes" style="display:none"></p>
 
+        <div class="p-pay" id="pPay">
+          <h4>Modalités de paiement</h4>
+          <div>Merci de bien vouloir virer le montant de la présente facture sur le compte bancaire suivant :</div>
+          <div class="bank">Al Barid Bank — Titulaire : RACHID ACHERKOUK</div>
+          <div>RIB : <b>350 810 0000000014025353 95</b></div>
+          <div>IBAN : <b>MA64 350 810 0000000014025353 95</b></div>
+        </div>
+
         <div class="p-sign">
           <div class="sig"><div class="line-sig"></div>Signature & cachet</div>
         </div>
@@ -346,6 +359,7 @@ function render(){
     numWords(dh) + ' dirhams' + (cts ? ' et ' + numWords(cts) + ' centimes' : '') + '.';
 
   $('pValid').style.display = docType === 'DEVIS' ? 'block' : 'none';
+  $('pPay').style.display = docType === 'FACTURE' ? 'block' : 'none';
   const notes = $('notes').value.trim();
   $('pNotes').style.display = notes ? 'block' : 'none';
   $('pNotes').textContent = notes ? 'Remarques : ' + notes : '';
