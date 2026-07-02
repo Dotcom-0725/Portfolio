@@ -238,6 +238,19 @@ table.p-items{width:100%;border-collapse:collapse;margin-top:4px}
   </div>
 </div>
 
+<datalist id="prestaList">
+  <option value="Création site web"></option>
+  <option value="Création landing page"></option>
+  <option value="Création photos publicitaires"></option>
+  <option value="Création vidéos publicitaires"></option>
+  <option value="Création et lancement d'une campagne publicitaire"></option>
+  <option value="Gestion de campagne publicitaire"></option>
+  <option value="Refonte de site web"></option>
+  <option value="Maintenance de site web"></option>
+  <option value="Nom de domaine + hébergement (1 an)"></option>
+  <option value="Création de logo / identité visuelle"></option>
+</datalist>
+
 <script>
 /* ─────────── State ─────────── */
 let docType = 'FACTURE';
@@ -256,7 +269,7 @@ function addRow(desc = '', qty = 1, pu = '') {
   const row = document.createElement('div');
   row.className = 'item-row';
   row.innerHTML = `
-    <input type="text" class="i-desc" placeholder="Désignation de la prestation" value="${desc}"/>
+    <input type="text" class="i-desc" list="prestaList" placeholder="Désignation de la prestation" value="${desc}"/>
     <input type="number" class="i-qty" min="1" value="${qty}"/>
     <input type="number" class="i-pu" min="0" step="0.01" placeholder="Prix" value="${pu}"/>
     <button type="button" class="del" title="Supprimer">✕</button>`;
